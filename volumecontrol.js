@@ -181,7 +181,7 @@
 		/*
 		 * Switch between button styles depending on the mute state
 		*/
-		level < 0.1 ? jQuery(".button",li).addClass("muted") : jQuery(".button",li).removeClass("muted");
+		level < 0.1 ? jQuery(".sbutton",li).addClass("muted") : jQuery(".sbutton",li).removeClass("muted");
 	}
 	
 	/**
@@ -202,7 +202,7 @@
 	 * @see VolumeControl.buildDOM
 	*/
 	VolumeControl.prototype.toggleMute = function(){
-		var muteButtons = jQuery("#participants li .button");
+		var muteButtons = jQuery("#participants li .sbutton");
 		var rangeSliders = jQuery("#participants li input[type=range]");
 		var lis = jQuery("#participants li");
 
