@@ -7,6 +7,7 @@
 
 .ui-accordion-content {
     padding: 0px;
+    padding-bottom: 10px;
 }
 
 #extension{
