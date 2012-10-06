@@ -50,7 +50,7 @@
 		var body = div.clone().attr({"id": "body"});
 
 		var grid_container		= div.clone().attr({"class":"grid_container"});
-		var grid_table			= this.createElement("table", {"class":"table_sound"});
+		var grid_table			= this.createElement("table", {"class":"table_faces"});
 		var content = "";
 		for(var i = 0; i < faces.length; i++){
 			if((i % 3) == 0){
