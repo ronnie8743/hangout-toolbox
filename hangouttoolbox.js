@@ -80,6 +80,19 @@
 		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-162)+"px"});
 
 		/*
+		 * Create Accordion
+		*/
+		var accordion = div.clone().attr({"id":"accordion"});
+		accordion.append(this.createElement("h3").html("<a href='#'>Lower Third</a>"));
+		accordion.append(div.clone().attr({"id":"app-lowerthird"}));
+		accordion.append(this.createElement("h3").html("<a href='#'>Volume Control</a>"));
+		accordion.append(div.clone().attr({"id":"app-volumecontrol"}));
+		accordion.append(this.createElement("h3").html("<a href='#'>Meme Face</a>"));
+		accordion.append(div.clone().attr({"id":"app-memeface"}));
+		accordion.append(this.createElement("h3").html("<a href='#'>Anonymous</a>"));
+		accordion.append(div.clone().attr({"id":"app-anonymous"}));
+
+		/*
 		 * Create the footer Div
 		*/
 		var date = new Date();
@@ -90,7 +103,7 @@
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
 		footer.append(this.createElement("span", {"class":"version"}).text("v 0.0.2"));
 
-		body.append(shadow);
+		body.append(shadow, accordion);
 
 		/*
 		 * Append DOM structure to container
@@ -152,6 +165,10 @@
 				console.log("Hangout Toolbox loaded!");
 				this.buildDOM();
 				this.scale();
+				jQuery('.accordion .head').click(function() {
+					jQuery(this).next().toggle('slow');
+					return false;
+				}).next().hide();
 			}	
 			catch(err) {
 				console.log(err);
