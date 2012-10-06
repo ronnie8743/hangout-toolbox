@@ -134,7 +134,7 @@
 		/*
 		 * Create pane body
 		*/
-		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-162)+"px"});
+		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-262)+"px"});
 
 		/*
 		 * Creates the form element
