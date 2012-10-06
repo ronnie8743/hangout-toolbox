@@ -564,3 +564,159 @@ text-decoration: none !important;
 h3 {color:#000; font-size:18px; line-height:18px; font-weight:normal; margin:0 0 8px 0;}
 h4 {color:#000; font-size:16px; line-height:16px; font-weight:normal; margin:0 0 8px 0;}
 img {border:0;}
+
+.sbutton {
+    position: relative;
+    top: -20px;
+    left: 10px;
+    background-color: #fff;
+    border:1px solid transparent;
+    display:inline-block;
+    color:#2e2e2e;
+    height:18px;
+    width: 18px;
+    font-weight:bold;
+    padding:4px 8px;
+    text-decoration:none;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACusAAArrAYKLDVoAAAAJdnBBZwAAABAAAAAQAFzGrcMAAACpSURBVCjPhZFdFYMwDIW/7swAk4AFJiGT0EoAC0hgEoaEImGVsFiYBSR0L0D56bb05Sa55940MZHfcU7Q1XQUjDR+SFWTFNwMR39JhFNGtVgnE8HJlpPyycJFbjyX/pWXN98tNiZ5AjlCiU5IKY976OloqKgIvHnQ7xVaFE+JIniUNreoGosQGHy/GiKunhUbrcRNbVFwFYIgBALqw/FYBYpy33/T/Dv3B1IyOMfkphoeAAAAFnRFWHRDcmVhdGlvbiBUaW1lADA3LzI5LzExsq7E0wAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAASUVORK5CYII=);
+    background-repeat: no repeat;
+}
+
+.sbutton:hover {
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background-color: #f8f8f8;
+    border-color: #c6c6c6;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEADMAMwAzhj9D9gAAAAlwSFlzAAAK6wAACusBgosNWgAAAAl2cEFnAAAAEAAAABAAXMatwwAAAdJJREFUOMtjuONlIXjHy2LVHS8LYwY04CEhZM1ADIiVl2C47G72DmZIkqJk/VFno793vCz+H3U2+pukKFmPSy+jr68vw8yZMxlSjXUZOvSU33EyM7kyMDCcQVeosu0EIzYDmDZv3syQn5/PMPvsZYaKS3eFvv/9tzv//G1GBlKBh4SQ9VFno7/eksIMR52N/ntLCjPc8bL4D8MMDAwMgdKigRgugDE4mZnFxNnZmKq05P+2XXvIWKUl/x/ZJYHSogzd+srrcBoAA3PvPW+aaKj6H5shWMMAxvj+9+8rBgYGhve//lxiYGBgINYQuAE7Xrw7ysDAwCDIxqJ3/O2nd+iGyHKxl7/8+esfugHMyBx2ZibtKHnxzGUPXxZf+vj10X8GBmU/aZH2tmsPmTJVpI/MuPNszaWPX1ajpANkjokgr1CYnNi+IGlR/eNvP7279PHLXntRAV8NXi6O/PO3GWHpRGXbibN4ozRJUbJ+mrHagzteFv+nGas9yFWVmfrs2TMGb0lhlBSLFwRKiwbe8bL4D4v70NBQBjRDBDG8ANOowssZqcfP42wpzCcE88qdz9+Xf//791X69LlHly1bxrB69WoGnAbgctX6p6/XE3Q6qQAAKXfICQ05gZwAAAAASUVORK5CYII=);
+    background-repeat: no repeat;
+}
+
+.sbutton.muted{
+    position: relative;
+    top: -20px;
+    left: 10px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background-color: #DD4B49;
+    border:1px solid #B13C2E;
+    color:#2e2e2e;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAJiS0dEADMVXUIkAAAACXBIWXMAAArrAAAK6wGCiw1aAAAACXZwQWcAAAAQAAAAEABcxq3DAAAA8ElEQVQoz42QIWvDUBSFzxuD6fZnzIapwChUT0REvKgnVxOzQOVjk4XOxW8mg0zkF4zMVNV0E9NVT5QmLlQ9TsWSpkkY7FMX7sfh3gOOmNJBje9iSIiqpANE2ljS2Eh31ncwkKhKOjzRS/BrReIPAfBdYyUMGwVQXkdQHnmuKLQpF83w/JTwQSwZiG76JQBUO2D/DSQMxJKBuBq+SkY6L0hSwvBxbmxPWKTGzu51nBe/t4RpT7gdv27IvFikXwdS1tX1iHS2JbOtjpvqBorySOW11XEEiHZ5LW+mk/Fnuf74eat2wSrBOzrCedZLhv9yBFAbl6dclBNrAAAAAElFTkSuQmCC);
+    background-repeat: no repeat;
+}
+
+#participants {
+    list-style: none;
+    margin: 0px;
+    padding: 10px;
+}
+
+#participants li {
+    height: 40px;
+}
+
+#participants li img{
+    width: 32px;
+    height: 32px;
+    margin: 10px;
+}
+
+#participants li input[type="range"] {
+    -webkit-appearance: none;
+    background-color: #d9d9d9;
+    height: 3px;
+    position: relative;
+    top: -25px;
+    margin-left: 5px;
+    width: 185px;
+    border: 1px solid #d6d6d6;
+}
+
+#participants li input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: 0px;
+    z-index: 1;
+    cursor:pointer;
+    width: 14px;
+    height: 14px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border: 2px solid #999;
+    background-color: #dcdcdc;
+}
+
+.ltbutton {
+-webkit-border-radius: 2px;
+    border-radius: 2px;
+    background-color:#f3f3f3;
+    border:1px solid transparent;
+    display:inline-block;
+    color:#2e2e2e;
+    font-family:arial;
+    font-size:11px;
+    font-weight:bold;
+    padding:2px 4px;
+    text-decoration:none;
+    float: right;
+    position: relative;
+    right: -8px;
+    top: 3px;
+}
+.ltbutton:hover {
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background-color:#f3f3f3;
+    color: #DD4B49;
+    border: 1px solid #c6c6c6;
+    background-image: -webkit-linear-gradient(top,whiteSmoke,#F1F1F1);
+    background-image: -moz-linear-gradient(top,whiteSmoke,#F1F1F1);
+    background-image: -ms-linear-gradient(top,whiteSmoke,#F1F1F1);
+    background-image: -o-linear-gradient(top,whiteSmoke,#F1F1F1);
+    background-image: linear-gradient(top,whiteSmoke,#F1F1F1);
+}
+
+.ltbutton_muted {
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    /*background-color:#DD4B49;
+    border:1px solid #B13C2E;*/
+    background-color: #EEE;
+    background-image: -webkit-linear-gradient(top,#F07775,#DD4B49);
+    background-image: -moz-linear-gradient(top,#F07775,#DD4B49);
+    background-image: -ms-linear-gradient(top,#F07775,#DD4B49);
+    background-image: -o-linear-gradient(top,#F07775,#DD4B49);
+    background-image: linear-gradient(top,#F07775,#DD4B49);
+    border:1px solid #B13C2E;
+    display:inline-block;
+    color:#fff;
+    font-family:arial;
+    font-size:11px;
+    font-weight:bold;
+    padding:2px 4px;
+    text-decoration:none;
+}
+.ltbutton_muted:hover {
+    background-color: #EEE;
+    background-image: -webkit-linear-gradient(top,#F07775,#DD4B49);
+    background-image: -moz-linear-gradient(top,#F07775,#DD4B49);
+    background-image: -ms-linear-gradient(top,#F07775,#DD4B49);
+    background-image: -o-linear-gradient(top,#F07775,#DD4B49);
+    background-image: linear-gradient(top,#F07775,#DD4B49);
+    border:1px solid #B13C2E;
+    color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+
