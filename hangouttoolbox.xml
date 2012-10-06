@@ -13,6 +13,10 @@
 			<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/base/jquery-ui.css" type="text/css" media="all" /> 
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js"></script> 
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/hangouttoolbox.js"></script>
+			<script src="//mthangout.appspot.com/a/hangouttoolbox/lowerthird.js"></script>
+			<script src="//mthangout.appspot.com/a/hangouttoolbox/volumecontrol.js"></script>
+			<script src="//mthangout.appspot.com/a/hangouttoolbox/memeface.js"></script>
+			<script src="//mthangout.appspot.com/a/hangouttoolbox/anonymous.js"></script>
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/analytics.js"></script>
 			<div id="extension"></div>
 		]]>
