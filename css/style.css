@@ -5,6 +5,10 @@
     line-height: 18px;
 }
 
+.ui-accordion-content {
+    padding: 0px;
+}
+
 #extension{
     background: white;
     border: 1px solid #D9D9D9;

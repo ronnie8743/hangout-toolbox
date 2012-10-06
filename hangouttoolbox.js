@@ -78,7 +78,7 @@
 		*/
 		var accordion = div.clone().attr({"id":"accordion"});
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Lower Third</a>"));
-		accordion.append(div.clone().attr({"id":"app-lowerthird"}).html("This is the Lower Third App"));
+		accordion.append(div.clone().attr({"id":"app-lowerthird"}));
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Volume Control</a>"));
 		accordion.append(div.clone().attr({"id":"app-volumecontrol"}).html("This is the Volume Control App"));
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Meme Face</a>"));

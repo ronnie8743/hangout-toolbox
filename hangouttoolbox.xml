@@ -11,8 +11,8 @@
 			<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/jstorage.js"></script>
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/jquery.simplemodal.js"></script>
+			<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/base/jquery-ui.css" type="text/css" media="all" />
 			<link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/style.css" />
-			<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/base/jquery-ui.css" type="text/css" media="all" /> 
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js"></script> 
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/hangouttoolbox.js"></script>
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/lowerthird.js"></script>

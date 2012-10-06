@@ -130,23 +130,6 @@
 		var inputText = this.createElement("input", {"class": "input", "type": "text"});
 		var inputCheckbox = this.createElement("input", {"class": "input", "type": "checkbox", "disabled": "disabled"});
 		var cleardiv = this.createElement("div", {"class": "clear"});
-
-		/*
-		 * Create pane header
-		*/
-		var header = this.createElement("div", {"id": "header"});
-
-		/*
-	 	 * Append icon and title to header
-		*/
-		header.append(this.createElement("span", {"class": "header_icon"}));
-		header.append(this.createElement("span", {"class": "header_title"}).html("Hangout Lower Third"));
-
-		/*
-		 * Creates the shadow Div
-		*/
-		var shadow = div.clone().attr({"class":"shadow"}).css({"opacity": "1"});
-		var shadow_bottom = div.clone().attr({"class":"shadow_bottom"}).css({"opacity": "1"});
 		
 		/*
 		 * Create pane body
@@ -201,23 +184,12 @@
 
 		var spacer 				= div.clone().css({"margin-left":"25px", "margin-top":"10px"});
 
-		var donate 				= this.createElement("a", {"href": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YRQBKYGF38ZL", "class":"paypal","target":"_blank", "title":"Any donation is much appreciated. \n\n With a donation you support the development of this and other Hangout apps. Thank you!"}).html("Fund Development");
+		var donate 				= this.createElement("a", {"href": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YRQBKYGF38ZL", "class":"button","target":"_blank", "title":"Any donation is much appreciated. \n\n With a donation you support the development of this and other Hangout apps. Thank you!"}).html("Fund Development");
 
 		var hr_line				= this.createElement("hr", {"class":"line"});
 
 		var presetlist			= this.createElement("ul", {"id":"presetlist", "class":"presetlist"});
 		
-		
-		/*
-		 * Create the footer Div
-		*/
-		var footer = div.clone().attr({id: "footer"}).html("&copy 2012 ");
-		footer.append(this.createElement("a",{"href": "https://google.me/+MoritzTolxdorff", "target": "_blank"}).html("+Moritz"));
-		footer.append(this.createElement("span").html(" | "));
-		footer.append(this.createElement("a",{"href": "https://google.me/+RobertPitt", "target": "_blank"}).html("+Robert"));
-		footer.append(this.createElement("span", {"class":"version"}).text(" - v 1.2.5"));
-		footer.append(this.createElement("a",{"href": "http://goo.gl/abquE", "class":"version" ,"target":"_blank"}).html("Support"));
-
 		/*
 		 * Append all elements
 		*/
@@ -228,10 +200,8 @@
 		fieldset_custom.append(switch_custom, inputFile_custom);
 		fieldset_presets.append(inputText_preset, button_save,presetlist);
 
-		spacer.append(donate);
-
 		form.append(fieldset_lowerthird,fieldset_clock,fieldset_custom,fieldset_presets, spacer);
-		body.append(shadow, form);
+		body.append(form);
 
 		/*
 		 * Create canvas elements for the lower third
@@ -243,7 +213,7 @@
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#app-lowerthird").append(header, body, shadow_bottom, footer);
+		jQuery("#app-lowerthird").append(body);
 
 		/*
 		 * Bind click event to the On/Off switch
