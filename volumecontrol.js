@@ -60,7 +60,7 @@
 			}
 		}
 	}
-	
+	   
 	/**
 	 * @buildDOM - Building the DOM structure
 	 * @private
