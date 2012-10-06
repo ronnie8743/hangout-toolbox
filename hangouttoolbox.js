@@ -161,7 +161,8 @@
 				this.scale();
 				$("#accordion").accordion({
 					collapsible: true,
-					autoHeight: false
+					autoHeight: false,
+					active: false
 				});
 
 				var anonymousbar = new AnonymousBar();
