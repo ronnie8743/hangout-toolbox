@@ -8,6 +8,7 @@
 		<![CDATA[
 			<script src="//talkgadget.google.com/hangouts/api/hangout.js?v=1.2"></script>
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 			<link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/style.css" />
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js"></script> 
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/hangouttoolbox.js"></script>

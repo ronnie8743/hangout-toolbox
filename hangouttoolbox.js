@@ -54,7 +54,6 @@
 	 * @private
 	*/
 	HangoutToolbox.prototype.buildDOM = function(){
-		this.log("Building DOM");
 		/*
 		 * Create empty elements
 		*/
@@ -67,7 +66,7 @@
 		*/
 		var header = this.createElement("div", {"id": "header"});
 		header.append(this.createElement("span", {"class": "header_icon"}));
-		header.append(this.createElement("span", {"class": "header_title"}).html("Meme Face"));
+		header.append(this.createElement("span", {"class": "header_title"}).html("Hangout Toolbox"));
 
 		/*
 		 * Creates the shadow Div
@@ -83,9 +82,13 @@
 		/*
 		 * Create the footer Div
 		*/
-		var footer = div.clone().attr({id: "footer"}).html("&copy 2012 ");
-		footer.append(this.createElement("a",{"href": "https://google.me/+MoritzTolxdorff", "target": "_blank"}).html("+Moritz Tolxdorff"));
-		footer.append(this.createElement("span", {"class":"version"}).text("v 0.0.1"));
+		var date = new Date();
+		year = date.getFullYear();
+		var footer = div.clone().attr({id: "footer"}).html("&copy " + year + " ");
+		footer.append(this.createElement("a",{"href": "https://google.me/+MoritzTolxdorff", "target": "_blank"}).html("+Moritz"));
+		footer.append(this.createElement("span").html(" &amp; "));
+		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
+		footer.append(this.createElement("span", {"class":"version"}).text("v 0.0.2"));
 
 		body.append(shadow);
 
@@ -101,7 +104,6 @@
 	 * @param evt {jQueryEventObject}
 	*/
 	HangoutToolbox.prototype.onWindowResize = function(evt){
-		this.log("Window resized");
 		this.maxHeight = $(window).height();
 		this.scale();
 	}

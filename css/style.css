@@ -5,7 +5,7 @@
     line-height: 18px;
 }
 
-#container{
+#extension{
     background: white;
     border: 1px solid #D9D9D9;
     min-width: 300px;
@@ -30,6 +30,25 @@
 	position: relative;
 	left: 0px;
 	top: 0px;
+}
+
+#footer a {
+	font-size:10px;
+	font-family:verdana;
+	color:#2e2e2e;
+	text-decoration:none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#footer a:hover {
+	text-decoration:underline;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 .version {
