@@ -74,17 +74,9 @@
 		 * Create pane body
 		*/
 		var body = div.clone().attr({"id": "body"});
-		
-		/*
-		 * Create the ul element for the template list and append it to the body
-		*/
+		var button = this.createElement("button", {"class": "ltbutton"}).text("Mute Hangout").appendTo(body);
 		var ul = this.createElement("ul", {"id": "participants"}).appendTo(body);
-
-		/*
-		 * Create On/Off button and append it to the header
-		*/	
-		var button = this.createElement("button", {"class": "ltbutton"}).text("Mute Hangout").appendTo(body);		
-
+				
 		/*
 		 * Bind click event to the On/Off button
 		*/	

@@ -80,7 +80,7 @@
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Lower Third</a>"));
 		accordion.append(div.clone().attr({"id":"app-lowerthird"}));
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Volume Control</a>"));
-		accordion.append(div.clone().attr({"id":"app-volumecontrol"}));
+		accordion.append(div.clone().attr({"id":"app-volumecontrol"})); 
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Meme Face</a>"));
 		accordion.append(div.clone().attr({"id":"app-memeface"}).html("This is the Meme Face App"));
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Anonymous</a>"));
