@@ -610,10 +610,12 @@ img {border:0;}
     list-style: none;
     margin: 0px;
     padding: 10px;
+    width: 270;
 }
 
 #participants li {
     height: 40px;
+    width: 270px;
 }
 
 #participants li img{

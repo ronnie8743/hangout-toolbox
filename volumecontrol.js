@@ -5,14 +5,6 @@
 	*/
 	function VolumeControl(){
 		/**
-		 * @VolumeControl.maxHeight - defines the maximum window height
-		 * @public
-		 * @const 
-		 * @type {Number}
-		*/
-		this.maxHeight = $(window).height();
-
-		/**
 		 * @VolumeControl.globalShow - defines the initial state of globalShow 
 		 * @private
 		 * @type {boolean}
@@ -47,7 +39,6 @@
 		*/
 		gapi.hangout.onApiReady.add(this.onApiReady.bind(this));
 		gapi.hangout.onParticipantsChanged.add(this.onParticipantsChanged.bind(this));
-		gapi.hangout.av.onVolumesChanged.add(this.onVolumesChanged.bind(this));
 		
 		/*
 		 * Bind window events when window size has changed
@@ -71,41 +62,6 @@
 	}
 	
 	/**
-	 * @onVolumesChanged - Fired when volume levels change
-	 * @private
-	 * @param evt {gapi.hangout.av.VolumesChangedEvent}
-	*/
-	VolumeControl.prototype.onVolumesChanged = function(evt){
-		var map = {};
-		var items = $("#participants li");
-
-		for(var i = 0; i < items.length; i++){
-			map[items[i].id.replace("participant_","")] = items[i]; 
-		}
-
-		for(var id in evt.volumes){
-			var level = parseInt(evt.volumes[id]);
-			if(id in map){
-				$(".gain_level", map[id]).css({"height": (6.4 * level), "margin-top": (32 - (level * 6.4))});
-
-				if(level in this.volumeColorEnum){
-					$(".gain_level", map[id]).css({"background-color": this.volumeColorEnum[level]});
-				}			
-			}
-		}
-	}
-	
-	/**
-	 * @onWindowResize - Fired when window resizes
-	 * @private
-	 * @param evt {jQueryEventObject}
-	*/
-	VolumeControl.prototype.onWindowResize = function(evt){	
-		this.maxHeight = $(window).height();
-		this.scale();
-	}
-	
-	/**
 	 * @buildDOM - Building the DOM structure
 	 * @private
 	*/
@@ -115,14 +71,9 @@
 		var a = this.createElement("a", {"target": "_blank"});
 		
 		/*
-		 * Create pane header
-		*/
-		var header = div.clone().attr({"id": "header"});
-		
-		/*
 		 * Create pane body
 		*/
-		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-262)+"px"});
+		var body = div.clone().attr({"id": "body"});
 		
 		/*
 		 * Create the ul element for the template list and append it to the body
@@ -132,7 +83,7 @@
 		/*
 		 * Create On/Off button and append it to the header
 		*/	
-		var button = this.createElement("button", {"class": "ltbutton"}).text("Mute Hangout").appendTo(header);		
+		var button = this.createElement("button", {"class": "ltbutton"}).text("Mute Hangout").appendTo(body);		
 
 		/*
 		 * Bind click event to the On/Off button
@@ -142,18 +93,7 @@
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#app-volumecontrol").append(header, body);
-	}
-	
-	/**
-	 * @scale - Scales the body for different resolutions
-	 * @public
-	*/
-	VolumeControl.prototype.scale = function(){
-		/*
-		 * Set the maximum height of the body minus header, input div and footer
-		*/
-		jQuery("#body").height(this.maxHeight-55);
+		jQuery("#app-volumecontrol").append(body);
 	}
 	
 	/**
@@ -324,11 +264,6 @@
 	 		 * Creating the profile image
 			*/
 			var image = this.createElement("img", {"src": placeholderImage, "title": "Unknown"}).appendTo(li);
-			if(cUser.hasAppEnabled === true){
-				image.css({"border-top": "3px solid green"});
-			}else{
-				image.css({"border-top": "3px solid transparent"});
-			}
 
 			/*
 	 		 * Creating the slider element
@@ -338,7 +273,7 @@
 			/*
 	 		 * Creating the participant mute button
 			*/
-			var muteButton = this.createElement("input", {"type": "button", "class": "button", "value": ""});
+			var muteButton = this.createElement("input", {"type": "button", "class": "sbutton", "value": ""});
 			
 			/*
 	 		 * Checking if the slider is below 0.1 or 0 to set the button to muted
@@ -395,7 +330,6 @@
 						console.log(cUser.person.displayName,volume_level);
 					}	
 				}, 1000);
-				this.scale();
 				this.generateControlls();
 				console.log("Volume Control loaded!");
 			}
