@@ -85,7 +85,7 @@
 }
 
 .header_icon {
-    background-image: url('https://tolxdorff.appspot.com/a/memeface/i/meme_16.png');
+    background-image: url('https://mthangout.appspot.com/a/hangouttoolbox/i/toolbox_16.png');
     height: 16px;
     width: 16px;    
     position: absolute;
@@ -108,6 +108,45 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.button {
+    background-color: #4D90FE;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#4D90FE),to(#4787ED));
+    background-image: -webkit-linear-gradient(top,#4D90FE,#4787ED);
+    background-image: -moz-linear-gradient(top,#4D90FE,#4787ED);
+    background-image: -ms-linear-gradient(top,#4D90FE,#4787ED);
+    background-image: -o-linear-gradient(top,#4D90FE,#4787ED);
+    background-image: linear-gradient(top,#4D90FE,#4787ED);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#4d90fe',EndColorStr='#4787ed');
+    border: 1px solid #3079ED;
+    color: white !important;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    display: inline-block;
+    font-weight: bold;
+    height: 29px;
+    line-height: 29px;
+    min-width: 54px;
+    padding: 0 8px;
+    margin-left:35px;
+    cursor: pointer !important;
+    text-align: center;
+    text-decoration: none !important;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    font-size:14px;
+}
+
+.button:hover {
+    background-color: #357AE8;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#4D90FE),to(#357AE8));
+    background-image: -webkit-linear-gradient(top,#4D90FE,#357AE8);
+    background-image: -moz-linear-gradient(top,#4D90FE,#357AE8);
+    background-image: -ms-linear-gradient(top,#4D90FE,#357AE8);
+    background-image: -o-linear-gradient(top,#4D90FE,#357AE8);
+    background-image: linear-gradient(top,#4D90FE,#357AE8);
 }
 
 .shadow{
