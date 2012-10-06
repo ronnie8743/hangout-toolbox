@@ -83,14 +83,14 @@
 		 * Create Accordion
 		*/
 		var accordion = div.clone().attr({"id":"accordion"});
-		accordion.append(this.createElement("h3").html("<a href='#'>Lower Third</a>"));
-		accordion.append(div.clone().attr({"id":"app-lowerthird"}));
-		accordion.append(this.createElement("h3").html("<a href='#'>Volume Control</a>"));
-		accordion.append(div.clone().attr({"id":"app-volumecontrol"}));
-		accordion.append(this.createElement("h3").html("<a href='#'>Meme Face</a>"));
-		accordion.append(div.clone().attr({"id":"app-memeface"}));
-		accordion.append(this.createElement("h3").html("<a href='#'>Anonymous</a>"));
-		accordion.append(div.clone().attr({"id":"app-anonymous"}));
+		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Lower Third</a>"));
+		accordion.append(div.clone().attr({"id":"app-lowerthird"}).html("This is the Lower Third App"));
+		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Volume Control</a>"));
+		accordion.append(div.clone().attr({"id":"app-volumecontrol"}).html("This is the Volume Control App"));
+		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Meme Face</a>"));
+		accordion.append(div.clone().attr({"id":"app-memeface"}).html("This is the Meme Face App"));
+		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Anonymous</a>"));
+		accordion.append(div.clone().attr({"id":"app-anonymous"}).html("This is the Anonymous App"));
 
 		/*
 		 * Create the footer Div
@@ -165,10 +165,9 @@
 				console.log("Hangout Toolbox loaded!");
 				this.buildDOM();
 				this.scale();
-				jQuery('.accordion .head').click(function() {
-					jQuery(this).next().toggle('slow');
-					return false;
-				}).next().hide();
+				$("#accordion").accordion({
+					collapsible: true
+				});
 			}	
 			catch(err) {
 				console.log(err);
