@@ -160,8 +160,12 @@
 				this.buildDOM();
 				this.scale();
 				$("#accordion").accordion({
-					collapsible: true
+					collapsible: true,
+					autoHeight: false
 				});
+
+				var anonymousbar = new AnonymousBar();
+				anonymousbar.init();
 			}	
 			catch(err) {
 				console.log(err);
