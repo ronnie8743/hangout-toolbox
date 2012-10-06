@@ -159,6 +159,6 @@
 		}
 	}
 
-	// Export instantiated LowerThird to main window
+	// Export instantiated HangoutToolBox to main window
 	window["appController"] = new HangoutToolbox();
 })()
