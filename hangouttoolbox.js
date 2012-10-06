@@ -67,12 +67,6 @@
 		var header = this.createElement("div", {"id": "header"});
 		header.append(this.createElement("span", {"class": "header_icon"}));
 		header.append(this.createElement("span", {"class": "header_title"}).html("Hangout Toolbox"));
-
-		/*
-		 * Creates the shadow Div
-		*/
-		var shadow = div.clone().attr({"class":"shadow"}).css({"opacity": "1"});
-		var shadow_bottom = div.clone().attr({"class":"shadow_bottom"}).css({"opacity": "1"});
 		
 		/*
 		 * Create pane body
@@ -103,12 +97,12 @@
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
 		footer.append(this.createElement("span", {"class":"version"}).text("v 0.0.2"));
 
-		body.append(shadow, accordion);
+		body.append(accordion);
 
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#extension").append(header, body, shadow_bottom, footer);
+		jQuery("#extension").append(header, body, footer);
 	}
 
 	/**
@@ -141,7 +135,7 @@
 		/*
 		 * Hide/Show shadow depending on scroll position
 		*/
-		jQuery("#body").scrollTop() > 0 ? jQuery(".shadow", "#container").show() : jQuery(".shadow", "#container").hide(); 
+		jQuery("#body").scrollTop() > 0 ? jQuery(".shadow", "#extension").show() : jQuery(".shadow", "#extension").hide(); 
 	}
 
 	/**
