@@ -5,9 +5,9 @@
     line-height: 18px;
 }
 
-.ui-accordion-content {
-    padding: 0px;
-    padding-bottom: 10px;
+.ui-accordion-content .ui-accordion-content .ui-helper-reset .ui-widget-content {
+    padding: 0px ! important;
+    padding-bottom: 10px !important;
 }
 
 #extension{
