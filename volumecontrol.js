@@ -142,7 +142,7 @@
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#container").append(header, body);
+		jQuery("#app-volumecontrol").append(header, body);
 	}
 	
 	/**
