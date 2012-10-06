@@ -71,7 +71,7 @@
 		/*
 		 * Create pane body
 		*/
-		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-162)+"px"});
+		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-152)+"px"});
 
 		/*
 		 * Create Accordion
@@ -82,7 +82,7 @@
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Volume Control</a>"));
 		accordion.append(div.clone().attr({"id":"app-volumecontrol"})); 
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Meme Face</a>"));
-		accordion.append(div.clone().attr({"id":"app-memeface"}).html("This is the Meme Face App"));
+		accordion.append(div.clone().attr({"id":"app-memeface"}));
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Anonymous</a>"));
 		accordion.append(div.clone().attr({"id":"app-anonymous"}).html("This is the Anonymous App"));
 
