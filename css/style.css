@@ -1,1 +1,132 @@
- 
+ body
+{
+    color: #222;
+    font: normal 13px arial,sans-serif;
+    line-height: 18px;
+}
+
+#container{
+    background: white;
+    border: 1px solid #D9D9D9;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+#footer
+{
+    background: #F3F3F3;
+    vertical-align: middle;
+    font-size: 10px;
+    line-height: 24px;
+    font-weight: normal;
+    border-top: 1px solid #D9D9D9;
+    padding: 0 10px;
+}
+
+.footer_note {
+	font-size:10px;
+	font-family:verdana;
+	float:left;
+	position: relative;
+	left: 0px;
+	top: 0px;
+}
+
+.version {
+	font-size: 9px;
+	float:right;
+	margin-right: 5px;
+}
+
+#header{
+    background: #F3F3F3;
+    font-size: 11px;
+    line-height: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid #D9D9D9;
+    padding: 0 10px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#body
+{
+    overflow-y:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.header_icon {
+    background-image: url('https://tolxdorff.appspot.com/a/memeface/i/meme_16.png');
+    height: 16px;
+    width: 16px;    
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.header_title {
+    margin-left: 18px;
+    line-height: 28px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.shadow{
+    -webkit-mask-box-image: -webkit-linear-gradient(left,transparent 0%,rgba(0,0,0,.8) 50%,transparent 100%);
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(top,rgba(0, 0, 0, .3),transparent);
+    background-image: -moz-linear-gradient(top,rgba(0, 0, 0, .3),transparent);
+    background-image: -ms-linear-gradient(top,rgba(0, 0, 0, .3),transparent);
+    background-image: -o-linear-gradient(top,rgba(0, 0, 0, .3),transparent);
+    background-image: linear-gradient(top,rgba(0, 0, 0, .3),transparent);
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    height: 8px;
+    margin: -10px 0 -8px;
+    position: relative;
+    width: 100%;
+    z-index: 985;
+}
+
+.shadow_bottom{
+    -webkit-mask-box-image: -webkit-linear-gradient(left,transparent 0%,rgba(0,0,0,.8) 50%,transparent 100%);
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(bottom,rgba(0, 0, 0, .2),transparent);
+    background-image: -moz-linear-gradient(bottom,rgba(0, 0, 0, .2),transparent);
+    background-image: -ms-linear-gradient(bottom,rgba(0, 0, 0, .2),transparent);
+    background-image: -o-linear-gradient(bottom,rgba(0, 0, 0, .2),transparent);
+    background-image: linear-gradient(bottom,rgba(0, 0, 0, .2),transparent);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    height: 8px;
+    margin-bottom: 0px;
+    position: relative;
+    width: 100%;
+    z-index: 985;
+}
+
+/*
+ * Scrollbars
+*/
+::-webkit-scrollbar {background: transparent;}
+::-webkit-scrollbar-corner {background: transparent;}
+::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0.2);border: solid whiteSmoke 4px;}
+::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.3);}
