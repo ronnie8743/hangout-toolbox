@@ -67,7 +67,7 @@
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#container").append(body);
+		jQuery("#app-soundboard").append(soundbody);
 
 		/*
 		 * Bind scroll event to toggle shadow
