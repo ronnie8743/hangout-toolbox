@@ -56,7 +56,7 @@
 			if((i % 3) == 0){
 				content += "<tr>";
 			}
-			content += "<td><a data-playable='" + faces[i].title + "' class='btn-faces' style='background-image: url(https://mthangout.appspot.com/a/hangouttoolbox/i/small/" + faces[i].data + ");' title='" + faces[i].title + "'></a></td>";
+			content += "<td><a data-face='" + faces[i].title + "' class='btn-faces' style='background-image: url(https://mthangout.appspot.com/a/hangouttoolbox/i/small/" + faces[i].data + ");' title='" + faces[i].title + "'></a></td>";
 			if((i % 3) == 2){
 				content += "</tr>";
 			}
@@ -64,7 +64,7 @@
 
 		grid_table.append(jQuery(content));
 		grid_container.append(grid_table);
-		jQuery("a[data-playable]").live("click",this.toggleFace.bind(this));
+		jQuery("a[data-face]").live("click",this.toggleFace.bind(this));
 
 		memebody.append(grid_container);
 
@@ -93,7 +93,7 @@
 	}
 
 	MemeFace.prototype.toggleFace = function(evt){
-		var title = jQuery(evt.target).data("playable");
+		var title = jQuery(evt.target).data("face");
 		
 		if(this.globalShow === false){
 			this.overlays[title].setVisible(true);	
