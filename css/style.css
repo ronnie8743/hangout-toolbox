@@ -154,7 +154,7 @@ body {color: #222; font: normal 13px arial,sans-serif; line-height: 18px;}
  *
 */
 #lowerthird-preset-list {list-style: none; margin:0px; padding:0px;}
-#lowerthird-preset-list li {margin:0px;}
+#lowerthird-preset-list li {margin:5px;}
 form {margin-left: 5px; width: 270px;}
 form .box {
     -webkit-border-radius: 4px;
@@ -192,7 +192,7 @@ form .box_text2 {
     background-color: #E9E9E9;
     border: 1px solid #ADADAD;
     padding: 5px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     margin-left:10px;
     margin-top:0px;
     width:150px;
