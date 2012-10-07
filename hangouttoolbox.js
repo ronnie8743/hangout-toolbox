@@ -123,7 +123,7 @@
 		/*
 		 * Set the maximum height of the body minus header, input div and footer
 		*/
-		jQuery("#body").height(this.maxHeight-64);
+		jQuery("#body").height(this.maxHeight-54);
 	}
 
 	/**
