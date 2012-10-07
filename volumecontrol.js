@@ -39,11 +39,6 @@
 		*/
 		gapi.hangout.onApiReady.add(this.onApiReady.bind(this));
 		gapi.hangout.onParticipantsChanged.add(this.onParticipantsChanged.bind(this));
-		
-		/*
-		 * Bind window events when window size has changed
-		*/
-		$(window).resize(this.onWindowResize.bind(this));
 	}
 	
 	/**
@@ -244,7 +239,7 @@
 	 		 * Setting all needed variables for participant volume level, placeHolder image and audio levels
 			*/
 			var volume_level = gapi.hangout.av.getParticipantVolume(cUser.id);
-			var placeholderImage = "https://mthangout.appspot.com/a/hangouttoolbox/i/bluehead.png";
+			var placeholderImage = "https://mthangout.appspot.com/a/hangouttoolbox/i/bluehead.jpg";
 			var levels = gapi.hangout.av.getParticipantAudioLevel(cUser.id);
 
 			/*

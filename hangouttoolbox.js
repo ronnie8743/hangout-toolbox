@@ -71,7 +71,7 @@
 		/*
 		 * Create pane body
 		*/
-		var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-162)+"px"});
+		var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-152)+"px"});
 
 		/*
 		 * Create Accordion
@@ -123,7 +123,7 @@
 		/*
 		 * Set the maximum height of the body minus header, input div and footer
 		*/
-		jQuery("#mainbody").height(this.maxHeight-64);
+		jQuery("#mainbody").height(this.maxHeight-54);
 	}
 
 	/**
