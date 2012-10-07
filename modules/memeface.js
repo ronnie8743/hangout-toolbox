@@ -107,26 +107,19 @@
 	 * @see LowerThird.buildDOM
 	*/
 	MemeFace.prototype.toggleShow = function(){
-		if(this.overlays[this.loadedoverlay]){
-			this.overlays[this.loadedoverlay].setVisible(false);
-			this.overlays[this.loadedoverlay].dispose();
-			delete this.overlays[this.loadedoverlay];
-			this.globalShowSaved = false;
-		}
-
- 		if(this.globalShow === true){
+        var that = this;
+ 		if(this.globalShow === true) {
             $.each(this.overlays, function(key, val) {
-              if(key != title && val['active'] == true) {
+                if(val['active'] == true) {
                     that.overlays[key]['overlay'].setVisible(false);	
                     that.overlays[key]['active'] = false;
-                that.globalShow = false;
-              }
+                    that.globalShow = false;
+                }
             });
-			jQuery("#switch_memefaces").removeClass("onoffswitch").addClass("onoffswitch_active");
+			jQuery("#switch_memefaces").addClass("onoffswitch").removeClass("onoffswitch_active");
 			this.globalShow = false;
 			return;
 		} else {
-		    jQuery("#switch_memefaces").removeClass("onoffswitch_active").addClass("onoffswitch");
 		    this.globalShow = false;
         }
 	}
