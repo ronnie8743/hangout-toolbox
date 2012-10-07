@@ -71,7 +71,7 @@
 		/*
 		 * Create pane body
 		*/
-		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-142)+"px"});
+		var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-162)+"px"});
 
 		/*
 		 * Create Accordion
@@ -102,7 +102,7 @@
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#extension").append(header, body, footer);
+		jQuery("#extension").append(header, mainbody, footer);
 	}
 
 	/**
@@ -123,7 +123,7 @@
 		/*
 		 * Set the maximum height of the body minus header, input div and footer
 		*/
-		jQuery("#body").height(this.maxHeight-54);
+		jQuery("#mainbody").height(this.maxHeight-64);
 	}
 
 	/**
@@ -135,7 +135,7 @@
 		/*
 		 * Hide/Show shadow depending on scroll position
 		*/
-		jQuery("#body").scrollTop() > 0 ? jQuery(".shadow", "#extension").show() : jQuery(".shadow", "#extension").hide(); 
+		jQuery("#mainbody").scrollTop() > 0 ? jQuery(".shadow", "#extension").show() : jQuery(".shadow", "#extension").hide(); 
 	}
 
 	/**
@@ -158,13 +158,12 @@
 			try {
 				console.log("Hangout Toolbox loaded!");
 				this.buildDOM();
-				this.scale();
 				$("#accordion").accordion({
 					collapsible: true,
 					autoHeight: false,
 					active: false
 				});
-
+				this.scale();
 				var anonymousbar = new AnonymousBar();
 				anonymousbar.init();
 			}	
