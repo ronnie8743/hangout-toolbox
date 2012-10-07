@@ -1,13 +1,13 @@
 var faces = [
-	{title : "LOL", scale: 2.4, data : "lolface.png"},
-	{title : "BOSS", scale: 2.5, data : "boss.png"},
-	{title : "CHALLENGE", scale: 2.5, data : "challenge.png"},
-	{title : "ALONE", scale: 2.8, data : "alone.png"},
-	{title : "MEGUSTA", scale: 2.5, data : "megusta_meme.png"},
-	{title : "PLEASE", scale: 2.8, data : "bitch.png"},
-	{title : "TROLL", scale: 3.0, data : "trollface.png"},
-	{title : "CEREAL", scale: 2.8, data : "cereal.png"},
-	{title : "CUTE", scale: 2.5, data : "cute.png"}
+	{title : "LOL", scale: 2.4, data : "lolface.png", offset: 0},
+	{title : "BOSS", scale: 2.5, data : "boss.png", offset: 0},
+	{title : "CHALLENGE", scale: 2.7, data : "challenge.png", offset: 0},
+	{title : "ALONE", scale: 2.8, data : "alone.png", offset: 0},
+	{title : "MEGUSTA", scale: 2.5, data : "megusta_meme.png", offset: 0},
+	{title : "PLEASE", scale: 2.8, data : "bitch.png", offset: 0},
+	{title : "TROLL", scale: 3.0, data : "trollface.png", offset: -0.2},
+	{title : "CEREAL", scale: 2.8, data : "cereal.png", offset: 0},
+	{title : "CUTE", scale: 2.5, data : "cute.png", offset: 0}
 ];
 
 var sounds = [

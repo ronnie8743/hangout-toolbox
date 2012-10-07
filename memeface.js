@@ -84,7 +84,7 @@
 			this.overlays[faces[i].title] = gapi.hangout.av.effects.createImageResource('https://mthangout.appspot.com/a/hangouttoolbox/i/' + faces[i].data)
 			.createFaceTrackingOverlay(
 				{'trackingFeature': gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT, 
-				 'offset': {"x":0,"y":0},
+				 'offset': {"x":0,"y":faces[i].offset},
 				 'rotateWithFace': true, 
 				 'scaleWithFace': true, 
 				 'scale': faces[i].scale
