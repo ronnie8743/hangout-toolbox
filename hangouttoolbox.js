@@ -161,6 +161,7 @@
 				console.log("Hangout Toolbox loaded!");
 				this.buildDOM();
 				$("#accordion").accordion({
+					header: "> div > h3",
 					collapsible: true,
 					autoHeight: false,
 					active: false
