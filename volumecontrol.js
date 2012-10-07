@@ -314,14 +314,6 @@
 		if(event.isApiReady){
 			try {
 				this.buildDOM();
-				window.setInterval(function(){
-					var p = gapi.hangout.getParticipants();
-					for(i = 0; i < p.length; i++) {
-						var cUser = p[i];
-						var volume_level = gapi.hangout.av.isParticipantAudible(cUser.id);
-						console.log(cUser.person.displayName,volume_level);
-					}	
-				}, 1000);
 				this.generateControlls();
 				console.log("Volume Control loaded!");
 			}

@@ -97,7 +97,7 @@
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
 		footer.append(this.createElement("span", {"class":"version"}).text("v 0.0.2"));
 
-		body.append(accordion);
+		mainbody.append(accordion);
 
 		/*
 		 * Append DOM structure to container
