@@ -622,9 +622,9 @@
 	 * @private
 	*/
 	LowerThird.prototype.DeletePreset = function(evt){
-		confirm = confirm("Do you want to delete this preset?");
+		var confirm_result = confirm("Do you want to delete this preset?");
 		id = evt.target.parentNode.id;
-		if(confirm == true){
+		if(confirm_result == true){
 			jQuery.jStorage.deleteKey(id);
 			this.generatePresets();
 		}else{
