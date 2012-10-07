@@ -824,7 +824,7 @@
       context.lineTo(0, 12);
       var lingrad = context.createLinearGradient(290, -3, 290, 39);
       lingrad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-      lingrad.addColorStop(1, 'rgba('+ targetColor[0] +', '+ targetColor[1] +', '+ targetColor[2]+', 0)');
+      lingrad.addColorStop(1, 'rgba('+ parseInt(targetColor.substring(1,3),16) +', '+ parseInt(targetColor.substring(3,5),16) +', '+ parseInt(targetColor.substring(5,7),16) +', 0)');
       context.fillStyle = lingrad;
       context.fill();
     }
@@ -852,7 +852,7 @@
 //        color_text_top = $('#color_top').css('color');
 //      }
 
-      this.drawPlastic(context, color);
+      this.drawPlastic(context, color_top);
 	  callback.call(this);
     }
 
