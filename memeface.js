@@ -47,7 +47,7 @@
 		/*
 		 * Create pane body
 		*/
-		var body = div.clone().attr({"id": "body"});
+		var memebody = div.clone().attr({"id": "memebody"});
 
 		var grid_container		= div.clone().attr({"class":"grid_container"});
 		var grid_table			= this.createElement("table", {"class":"table_faces"});
@@ -66,12 +66,12 @@
 		grid_container.append(grid_table);
 		jQuery("a[data-playable]").live("click",this.toggleFace.bind(this));
 
-		body.append(grid_container);
+		memebody.append(grid_container);
 
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#app-memeface").append(body);
+		jQuery("#app-memeface").append(memebody);
 	}
 
 	/**

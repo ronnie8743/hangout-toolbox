@@ -73,9 +73,9 @@
 		/*
 		 * Create pane body
 		*/
-		var body = div.clone().attr({"id": "body"});
-		var button = this.createElement("button", {"class": "ltbutton"}).text("Mute Hangout").appendTo(body);
-		var ul = this.createElement("ul", {"id": "participants"}).appendTo(body);
+		var volumecontrolbody = div.clone().attr({"id": "volumecontrolbody"});
+		var button = this.createElement("button", {"class": "ltbutton"}).text("Mute Hangout").appendTo(volumecontrolbody);
+		var ul = this.createElement("ul", {"id": "participants"}).appendTo(volumecontrolbody);
 				
 		/*
 		 * Bind click event to the On/Off button
@@ -85,7 +85,7 @@
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#app-volumecontrol").append(body);
+		jQuery("#app-volumecontrol").append(volumecontrolbody);
 	}
 	
 	/**
