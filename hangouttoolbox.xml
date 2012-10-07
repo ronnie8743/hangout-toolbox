@@ -13,6 +13,7 @@
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/jquery.simplemodal.js"></script>
 			<link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/jquery-ui.css" />
 			<link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/style.css" />
+			<script src="//mthangout.appspot.com/a/hangouttoolbox/jscolor/jscolor.js"></script> 
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js"></script> 
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/hangouttoolbox.js"></script>
 			<script src="//mthangout.appspot.com/a/hangouttoolbox/lowerthird.js"></script>
