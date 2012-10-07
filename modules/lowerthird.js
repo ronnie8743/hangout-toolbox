@@ -811,7 +811,7 @@
 				if($.jStorage.get("notice") != "true"){
 					$( "#dialog-message" ).dialog({
 						modal: true,
-						dragable: false,
+						draggable: false,
 						resizable: false,
 						buttons: {
 							Ok: function() {
