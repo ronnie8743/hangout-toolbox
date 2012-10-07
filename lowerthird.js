@@ -169,6 +169,7 @@
 
 		var inputText_name 		= inputText.clone().attr({"id": "Name", "class": "box_text", "name": "name"});
 		var inputText_tagline 	= inputText.clone().attr({"id": "Tag", "class": "box_text", "name": "tagline", "value":""}).css({"font-color":"#c0c0c0"});
+		var inputColor  		= inputText.clone().attr({"id": "Color", "class": "box_text color", "name": "color", "value": "dd4b39"});
 		var inputSelect 		= this.createElement("select", {"id": "Select", "class": "box_select"});
 		var inputText_preset	= inputText.clone().attr({"id": "PreName", "class": "box_text2", "name": "preset"});
 
@@ -195,7 +196,7 @@
 		*/
 		inputSelect.append(optionRed, optionBlue, optionGreen, optionPink, optionYellow, optionGrey, optionOrange);
 
-		fieldset_lowerthird.append(switch_lowerthird, inputText_name,inputText_tagline,inputSelect,inputFile_logo);
+		fieldset_lowerthird.append(switch_lowerthird, inputText_name,inputText_tagline,inputColor,inputFile_logo);
 		fieldset_clock.append(switch_clock, radio_left, radio_left_text, radio_right, radio_right_text);
 		fieldset_custom.append(switch_custom, inputFile_custom);
 		fieldset_presets.append(inputText_preset, button_save,presetlist);
@@ -215,6 +216,7 @@
 		*/
 		jQuery("#app-lowerthird").append(body);
 
+        new jscolor.color(document.getElementById('Color'), {});
 		/*
 		 * Bind click event to the On/Off switch
 		*/	
@@ -261,7 +263,7 @@
 			jQuery("#switch_lowerthird").removeClass("onoffswitch").addClass("onoffswitch_active");
 			jQuery("#Name").attr({"disabled": "disabled"});
 			jQuery("#Tag").attr({"disabled": "disabled"});
-			jQuery("#Select").attr({"disabled": "disabled"});
+			jQuery("#Color").attr({"disabled": "disabled"});
 			jQuery("#iconfile").attr({"disabled": "disabled"});
 			this.globalShow = true;
 			this.createCanvas();
@@ -271,7 +273,7 @@
 		jQuery("#switch_lowerthird").removeClass("onoffswitch_active").addClass("onoffswitch");
 		jQuery("#Name").removeAttr("disabled");
 		jQuery("#Tag").removeAttr("disabled");
-		jQuery("#Select").removeAttr("disabled");
+		jQuery("#Color").removeAttr("disabled");
 		jQuery("#iconfile").removeAttr("disabled");
 		this.globalShow = false;
 
@@ -444,11 +446,16 @@
 		}
 
 		var finish = function(){
+
+            var text_top_color = "black";
+            if($('#Color').css('color') != '') {
+              text_top_color = $('#Color').css('color');
+            }
 			if(gapi.hangout.onair.isOnAirHangout() === true) {
-				this.drawTextToCanvas(this.getInputValue("Name"), 110, 13, 28);
+				this.drawTextToCanvas(this.getInputValue("Name"), 110, 13, 28, text_top_color);
 				this.drawTextToCanvas(this.getInputValue("Tag"), 110, 47, 15, "white");
 			}else{
-				this.drawTextToCanvas(this.getInputValue("Name"), 110, 13, 28);
+				this.drawTextToCanvas(this.getInputValue("Name"), 110, 13, 28, text_top_color);
 				this.drawTextToCanvas(this.getInputValue("Tag"), 110, 47, 15, "white");
 			}
 
@@ -480,7 +487,8 @@
 			}
 		}.bind(this)
 
-		this.drawImageToCanvas(canvasContext, logo, 0, 0, 10, 70, function(){
+		//this.drawImageToCanvas(canvasContext, logo, 0, 0, 10, 70, function(){
+		this.drawShape(canvasContext, function(){
 			this.readImageFromInput(document.getElementById("iconfile"), function(data){
 				if(data === false || data.result === false){
 					finish();
@@ -782,6 +790,72 @@
 	LowerThird.prototype.createElement = function(type, attr){
 		return jQuery("<" + type + ">").attr(attr || {});
 	}
+
+    LowerThird.prototype.Rectangle = function(x, y, width, height, color, shadow) {
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+      this.color = color;
+      this.shadow = shadow;
+    }
+
+    LowerThird.prototype.Rectangle.prototype.draw = function(context) {
+      context.restore();
+      context.fillStyle = this.color;
+
+      if(typeof(this.shadow) != 'undefined') {
+        context.shadowColor = '#000';
+        context.shadowBlur = 7;
+        context.shadowOffsetX = -4;
+        context.shadowOffsetY = 4;
+      }
+      context.fillRect(this.x, this.y, this.width, this.height);
+      context.shadowColor = null;
+      context.shadowBlur  = null;
+      context.shadowOffsetX = null;
+      context.shadowOffsetY = null;
+    }
+
+    LowerThird.prototype.drawPlastic = function(context, targetColor) {
+      context.beginPath();
+      context.moveTo(0, 12);
+      context.quadraticCurveTo(290, 38, 580, 12);
+      context.lineTo(0, 12);
+      var lingrad = context.createLinearGradient(290, -3, 290, 39);
+      lingrad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+      lingrad.addColorStop(1, 'rgba('+ targetColor[0] +', '+ targetColor[1] +', '+ targetColor[2]+', 0)');
+      context.fillStyle = lingrad;
+      context.fill();
+    }
+
+    LowerThird.prototype.drawShape = function(context, callback) {
+      var canvas = context.canvas;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.save();
+
+      var color = [221, 75, 57];
+
+      var box_bottom = new this.Rectangle(0, 45, 450, 20, '#3e3e3e');
+      box_bottom.draw(context);
+
+      var color_top = 'rgba('+ color[0] +', '+ color[1] +', '+ color[2]+', 1)';
+      if($('#Color').val() != '') {
+        color_top = '#'+ $('#Color').val();
+      }
+
+      var box_top = new this.Rectangle(0, 12, 580, 33, color_top, true);
+      box_top.draw(context);
+
+//      var color_text_top = '#000000';
+//      if($('#color_top').css('color') != '') {
+//        color_text_top = $('#color_top').css('color');
+//      }
+
+      this.drawPlastic(context, color);
+	  callback.call(this);
+    }
+
 
 	/**
 	 * @onApiReady - Fired by gapi when it's ready
