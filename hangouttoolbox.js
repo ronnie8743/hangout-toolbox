@@ -166,7 +166,6 @@
 				this.scale();
 				var anonymousbar = new AnonymousBar();
 				anonymousbar.init();
-				console.log(build);
 			}	
 			catch(err) {
 				console.log(err);
