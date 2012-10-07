@@ -5,7 +5,7 @@ var faces = [
 	{title : "ALONE", scale: 2.8, data : "alone.png", offset: 0},
 	{title : "MEGUSTA", scale: 2.5, data : "megusta_meme.png", offset: 0},
 	{title : "PLEASE", scale: 2.8, data : "bitch.png", offset: 0},
-	{title : "TROLL", scale: 3.0, data : "trollface.png", offset: 0.05},
+	{title : "TROLL", scale: 3.2, data : "trollface.png", offset: 0.05},
 	{title : "CEREAL", scale: 2.8, data : "cereal.png", offset: 0},
 	{title : "CUTE", scale: 2.5, data : "cute.png", offset: 0}
 ];
