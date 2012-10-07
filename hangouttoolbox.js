@@ -4,8 +4,6 @@
 	 * Hangout Toolbox for Google+ Hangouts
 	 * Copyright (c) 2012 Moritz Tolxdorff & Martin Thielecke
 	 * 
-	 * Version: 0.0.1
-	 *
 	 * Hangout Toolbox for Google+ Hangouts is free software: you can redistribute it and/or modify
  	 * it under the terms of the GNU General Public License as published by
  	 * the Free Software Foundation, either version 3 of the License, or
@@ -97,7 +95,7 @@
 		footer.append(this.createElement("a",{"href": "https://google.me/+MoritzTolxdorff", "target": "_blank"}).html("+Moritz"));
 		footer.append(this.createElement("span").html(" &amp; "));
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
-		footer.append(this.createElement("span", {"class":"version"}).text("v 0.1.5"));
+		footer.append(this.createElement("span", {"class":"version"}).text("v " + version));
 
 		mainbody.append(accordion);
 
@@ -168,6 +166,7 @@
 				this.scale();
 				var anonymousbar = new AnonymousBar();
 				anonymousbar.init();
+				console.log(build);
 			}	
 			catch(err) {
 				console.log(err);
