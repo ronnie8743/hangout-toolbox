@@ -10,6 +10,7 @@
 		 * @type {boolean}
 		*/
 		this.globalShow = false;
+		this.globalShowOwnFace = false;
 		this.customShow = false;
 
 		/**
@@ -25,6 +26,7 @@
 		 * @type {null | HTMLCanvasElement}
 		*/
 		this.canvas = null;
+		this.overlayOwnFace = null;
 
 		/*
 		 * Bind gapi events when API is ready
@@ -40,20 +42,31 @@
 		/*
 		 * Create empty elements
 		*/
+        var that = this;
 		var div = this.createElement("div");
 		var span = this.createElement("span");
 		var cleardiv = this.createElement("div", {"class": "clear"});
+		var inputText = this.createElement("input", {"class": "input", "type": "text"});
 		
 		/*
 		 * Create pane body
 		*/
 		var fieldset_memefaces	= this.createElement("fieldset", {"class": "fieldset"});
+		var fieldset_ownface	= this.createElement("fieldset", {"class": "fieldset"});
 		var legend_lowerthird	= this.createElement("legend", {"class": "legend"}).text("Meme Faces").appendTo(fieldset_memefaces);
+		var legend_ownface  	= this.createElement("legend", {"class": "legend"}).text("URL Face").appendTo(fieldset_ownface);
 		var switch_memefaces	= this.createElement("a",{"id": "switch_memefaces", "class": "onoffswitch"});
+		var switch_ownface  	= this.createElement("a",{"id": "switch_ownface", "class": "onoffswitch"});
+
 		var memebody = div.clone().attr({"id": "memebody"});
 		var form = this.createElement("form", {"id": "form"});
 
-		var grid_container		= div.clone().attr({"class":"grid_container"});
+		var inputText_url 		= inputText.clone().attr({"id": "Url", "class": "box_text", "name": "url"});
+        var inputScale          = div.clone().attr({'id': "Scale"});
+		
+		var spacer 				= div.clone().css({"margin-left":"25px", "margin-top":"10px"});
+
+        var grid_container		= div.clone().attr({"class":"grid_container"});
 		var grid_table			= this.createElement("table", {"class":"table_faces"});
 		var content = "";
 		for(var i = 0; i < faces.length; i++){
@@ -67,19 +80,22 @@
 		}
 
 		fieldset_memefaces.append(switch_memefaces, content);
+        fieldset_ownface.append(switch_ownface, inputText_url, inputScale);
 
-		form.append(fieldset_memefaces);
+		form.append(fieldset_memefaces, fieldset_ownface);
 		grid_table.append(form);
 		grid_container.append(grid_table);
 		jQuery("a[data-face]").live("click",this.toggleFace.bind(this));
 
 		switch_memefaces.click(this.toggleShow.bind(this));
+		switch_ownface.click(this.toggleShowOwnFace.bind(this));
 		memebody.append(grid_container);
 
 		/*
 		 * Append DOM structure to container
 		*/
 		jQuery("#app-memeface").append(memebody);
+        $('#Scale').slider({ 'orientation': 'horizontal', 'step': 0.1, 'min': 0, 'max': 4, 'value': 2, 'change': function() { that.rescale(); } });
 	}
 
 	/**
@@ -104,11 +120,16 @@
 	/**
 	 * @toggleShow - Fired when #button is clicked
 	 * @public
-	 * @see LowerThird.buildDOM
+	 * @see MemeFace.buildDOM
 	*/
 	MemeFace.prototype.toggleShow = function(){
         var that = this;
- 		if(this.globalShow === true) {
+		if(this.globalShow === true) {
+            if(this.globalShowOwnFace === true) {
+                this.globalShowOwnFace = false;
+                this.overlayOwnFace.dispose();
+                jQuery("#switch_ownface").addClass("onoffswitch").removeClass("onoffswitch_active");
+            }
             $.each(this.overlays, function(key, val) {
                 if(val['active'] == true) {
                     that.overlays[key]['overlay'].setVisible(false);	
@@ -124,10 +145,62 @@
         }
 	}
 
+	/**
+	 * @toggleShowOwnFace - Fired when #button is clicked
+	 * @public
+	 * @see MemeFace.buildDOM
+	*/
+	MemeFace.prototype.toggleShowOwnFace = function(){
+        var that = this;
+
+        if(this.globalShow === true) {
+            $.each(this.overlays, function(key, val) {
+                if(val['active'] == true) {
+                    that.overlays[key]['overlay'].setVisible(false);	
+                    that.overlays[key]['active'] = false;
+                    that.globalShow = false;
+                }
+            });
+            jQuery("#switch_memefaces").addClass("onoffswitch").removeClass("onoffswitch_active");
+            this.globalShow = false;
+        }
+
+ 		if(this.globalShowOwnFace === false) {
+            var url = $('#Url').val();
+            if(url != '') {
+                this.overlayOwnFace = gapi.hangout.av.effects.createImageResource(url).createFaceTrackingOverlay(
+                    {'trackingFeature': gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT, 
+                     'offset': {"x":0,"y":faces[i].offset},
+                     'rotateWithFace': true, 
+                     'scaleWithFace': true, 
+                     'scale': $('#Scale').slider('value')
+                    });
+                this.overlayOwnFace.setVisible(true);
+                jQuery("#switch_ownface").removeClass("onoffswitch").addClass("onoffswitch_active");
+                this.globalShowOwnFace = true;
+            }
+        } else {
+            this.overlayOwnFace.dispose();
+            this.globalShowOwnFace = false;
+            jQuery("#switch_ownface").addClass("onoffswitch").removeClass("onoffswitch_active");
+        }
+	}
+
+    MemeFace.prototype.rescale = function() {
+        if(this.globalShowOwnFace === true) {
+            this.overlayOwnFace.setScale($('#Scale').slider('value'));
+        }
+    }
 
 	MemeFace.prototype.toggleFace = function(evt){
 		var title = jQuery(evt.target).data("face");
         var that = this;
+
+        if(this.globalShowOwnFace === true) {
+            this.globalShowOwnFace = false;
+            this.overlayOwnFace.dispose();
+            jQuery("#switch_ownface").addClass("onoffswitch").removeClass("onoffswitch_active");
+        }
 
         $.each(this.overlays, function(key, val) {
           if(key != title && val['active'] == true) {
