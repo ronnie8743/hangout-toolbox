@@ -38,7 +38,7 @@ AnonymousBar.prototype.init = function() {
   var container = $('#app-anonymous');
   container.html('');
   var that = this;
-  var button = $('<button id="toggle_anonymous" class="button">Turn on</button>').click(function() {
+  var button = $('<button id="toggle_anonymous" class="general-button-blue">Turn on</button>').click(function() {
     that.toggle();
   });
   container.append(button);

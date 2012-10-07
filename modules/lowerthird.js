@@ -55,6 +55,7 @@
 		this.name = "";
 
 		this.fullcanvas = "";
+		this.customfullcanvas = "";
 		this.customcanvas = "";
 		this.loadedoverlay = "";
 
@@ -135,11 +136,11 @@
 		var switch_clock		= this.createElement("a",{"id": "switch_clock", "class": "onoffswitch"});
 		var switch_custom		= this.createElement("a",{"id": "switch_custom", "class": "onoffswitch"});
 
-		var button_save			= this.createElement("a", {"id": "button_save", "class": "button_save"}).html("Save");
+		var button_save			= this.createElement("a", {"id": "lowerthird-save-button", "class": "general-button-blue"}).html("Save");
 
-		var radio_left			= this.createElement("input", {"type": "radio", "id":"radio_left", "name":"clock", "checked":"checked"});
-		var radio_left_text		= label.clone().attr({"for": "name", "class":"radio_text"}).text("Left");
-		var radio_right			= this.createElement("input", {"type": "radio", "name":"clock", "id":"radio_right"});
+		var radio_left			= this.createElement("input", {"type": "radio", "id":"radio-button-left", "name":"clock", "checked":"checked"});
+		var radio_left_text		= label.clone().attr({"for": "name"}).text("Left");
+		var radio_right			= this.createElement("input", {"type": "radio", "name":"clock", "id":"radio-button-right"});
 		var radio_right_text	= label.clone().attr({"for": "name"}).text("Right");
 
 		var nopresets			= span.clone().text("No saved presets!");
@@ -166,7 +167,7 @@
 
 		var hr_line				= this.createElement("hr", {"class":"line"});
 
-		var presetlist			= this.createElement("ul", {"id":"presetlist", "class":"presetlist"});
+		var presetlist			= this.createElement("ul", {"id":"lowerthird-preset-list"});
 		
 		/*
 		 * Append all elements
@@ -293,6 +294,7 @@
 			this.readImageFromInput(document.getElementById("customfile"), function(data){
 
 				this.overlayImage = data.result;
+				this.customfullcanvas = data.result;
 				this.customcanvas = data.result;
 				var img = new Image();
 				img.src = data.result;
@@ -538,7 +540,7 @@
 	*/
 	LowerThird.prototype.generatePresets = function(){
 		var storage = jQuery.jStorage.index();
-		ul = jQuery("#presetlist");
+		ul = jQuery("#lowerthird-preset-list");
 		jQuery("li",ul).remove();
 		var presets = jQuery.grep(storage, function(a){
 			return (a != "notice");
@@ -548,18 +550,19 @@
 		});
 		if(presets_out.length === 0){
 			nopresets = this.createElement("li").text("No saved presets!");
-			jQuery("#presetlist").append(nopresets);
+			jQuery("#lowerthird-preset-list").append(nopresets);
 		}else{
 			var i = 0;
 			for(i = 0; i < presets_out.length; i++){
-				var li = this.createElement("li", {"class":"presetlist_li", "id": presets_out[i]}).text(presets_out[i].substring(4));
-				var deleteButton = this.createElement("a",{"class":"delete"});
-				var loadButton = this.createElement("a",{"class":"load"});
+				var label = presets_out[i].split("_");
+				var li = this.createElement("li", {"id": presets_out[i]}).text(label[1]);
+				var deleteButton = this.createElement("a",{"class":"lowerthird-delete-preset"});
+				var loadButton = this.createElement("a",{"class":"lowerthird-load-preset"});
 				deleteButton.click(this.DeletePreset.bind(this));
 				loadButton.click(this.loadPreset.bind(this));
 				li.click(this.loadPresetText.bind(this));
 				li.append(deleteButton,loadButton);
-				jQuery("#presetlist").append(li);
+				jQuery("#lowerthird-preset-list").append(li);
 			}
 		}
 	}
@@ -579,28 +582,35 @@
 	 * @private
 	*/
 	LowerThird.prototype.SavePreset = function(){
-		var name = this.getInputValue("PreName");
-		if(name === ""){
-			$.modal('<div><h1>Alert</h1><h4>Please enter a name for your preset first!</h4></div>');
-			//alert("Please enter a name for your preset first!");
-			return;
-			name = "default";
-		}
-		if(this.globalShow == false){
-			$.modal('<div><h1>Alert</h1><h4>Nothing to save. <br />Enable Lower Third first.</h4></div>');
-			//alert("Nothing to save! \nEnable Lower Third first.");
-			return;
-		}
-		var data = this.fullcanvas;
-		//console.log(jQuery.jStorage.storageSize()/1024/1024 + "MB");
-		//$.jStorage.storageAvailable();
-		try{
-			jQuery.jStorage.set("pre_"+name, data);
-		}catch(e){
-			if(e.code === 22 || e.code === 1014){
-				alert("No space left in local storage! Please delete presets!");
+		if(this.globalShow === true){
+			var name = this.getInputValue("PreName");
+			if(name === ""){
+				$.modal('<div><h1>Alert</h1><h4>Please enter a name for your preset first!</h4></div>');
+				//alert("Please enter a name for your preset first!");
+				return;
+				name = "default";
+			}
+			var data = this.fullcanvas;
+			try{
+				jQuery.jStorage.set("pre_"+name, data);
+			}catch(e){
+				if(e.code === 22 || e.code === 1014){
+					alert("No space left in local storage! Please delete presets!");
+				}
 			}
 		}
+		if(this.globalShowCustom === true){
+			var name = this.getInputValue("PreName");
+			var data = this.customfullcanvas;
+			try{
+				jQuery.jStorage.set("precustom_"+name, data);
+			}catch(e){
+				if(e.code === 22 || e.code === 1014){
+					alert("No space left in local storage! Please delete presets!");
+				}
+			}
+		}		
+		
 		jQuery("#PreName").val("");
 		this.generatePresets();
 	}
@@ -626,7 +636,6 @@
 			this.overlays[this.loadedoverlay].setVisible(false);
 			this.overlays[this.loadedoverlay].dispose();
 			delete this.overlays[this.loadedoverlay];
-
 		}
 		if (this.loadedoverlay != id) {
 			this.globalShowSaved = false;
@@ -645,11 +654,18 @@
 		if(this.globalShowSaved === false){
 			this.globalShowSaved = true;
 			this.loadedoverlay = id;
+			var type = id.split("_",1);
+			if(type[0] === "pre"){
+				var offset = 0.39;
+			}else{
+				var offset = 0;
+			}
+			console.log(offset);
 			var storedImage = gapi.hangout.av.effects.createImageResource($.jStorage.get(id));
 			this.overlays[id] = storedImage.createOverlay({
 			});
 			this.overlays[id].setScale(1, gapi.hangout.av.effects.ScaleReference.WIDTH);
-			this.overlays[id].setPosition(0, 0.39);
+			this.overlays[id].setPosition(0, offset);
 			this.overlays[id].setVisible(true);
 		}else{
 			this.globalShowSaved = false;

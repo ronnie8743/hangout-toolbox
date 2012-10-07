@@ -69,7 +69,7 @@
 		 * Create pane body
 		*/
 		var volumecontrolbody = div.clone().attr({"id": "volumecontrolbody"});
-		var button = this.createElement("button", {"class": "ltbutton"}).text("Mute Hangout").appendTo(volumecontrolbody);
+		var button = this.createElement("button", {"class": "volumecontrol-mute-all-button"}).appendTo(volumecontrolbody);
 		var ul = this.createElement("ul", {"id": "participants"}).appendTo(volumecontrolbody);
 				
 		/*
@@ -108,7 +108,7 @@
 		/*
 		 * Switch between button styles depending on the mute state
 		*/
-		level < 0.1 ? jQuery(".sbutton",li).addClass("muted") : jQuery(".sbutton",li).removeClass("muted");
+		level < 0.1 ? jQuery(".volumecontrol-mute-button",li).addClass("muted") : jQuery(".volumecontrol-mute-button",li).removeClass("muted");
 	}
 	
 	/**
@@ -129,7 +129,7 @@
 	 * @see VolumeControl.buildDOM
 	*/
 	VolumeControl.prototype.toggleMute = function(){
-		var muteButtons = jQuery("#participants li .sbutton");
+		var muteButtons = jQuery("#participants li .volumecontrol-mute-button");
 		var rangeSliders = jQuery("#participants li input[type=range]");
 		var lis = jQuery("#participants li");
 
@@ -151,7 +151,7 @@
 			rangeSliders.val(0);
 			gapi.hangout.layout.displayNotice("You've muted the whole hangout. This only applies for yourself!");
 			gapi.hangout.av.setMicrophoneMute(true);
-			jQuery(".ltbutton").text("Unmute Hangout").addClass("ltbutton_muted");
+			jQuery(".volumecontrol-mute-all-button").addClass("volumecontrol-mute-all-button-muted");
 			muteButtons.attr({"disabled": "disabled"});
 			rangeSliders.attr({"disabled": "disabled"});
 			this.globalMuted = true;
@@ -167,7 +167,7 @@
 			gapi.hangout.layout.displayNotice("You've unmuted the whole hangout.");
 			gapi.hangout.av.clearMicrophoneMute();
 			gapi.hangout.av.clearCameraMute();
-			jQuery(".ltbutton").text("Mute Hangout").removeClass("ltbutton_muted");
+			jQuery(".volumecontrol-mute-all-button").removeClass("volumecontrol-mute-all-button-muted");
 			muteButtons.removeAttr("disabled");
 			rangeSliders.removeAttr("disabled");
 			this.globalMuted = false;
@@ -260,7 +260,7 @@
 			/*
 	 		 * Creating the participant mute button
 			*/
-			var muteButton = this.createElement("input", {"type": "button", "class": "sbutton", "value": ""});
+			var muteButton = this.createElement("input", {"type": "button", "class": "volumecontrol-mute-button", "value": ""});
 			
 			/*
 	 		 * Checking if the slider is below 0.1 or 0 to set the button to muted

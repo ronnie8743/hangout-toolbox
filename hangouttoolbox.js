@@ -63,8 +63,8 @@
 		 * Create pane header
 		*/
 		var header = this.createElement("div", {"id": "header"});
-		header.append(this.createElement("span", {"class": "header_icon"}));
-		header.append(this.createElement("span", {"class": "header_title"}).html("Hangout Toolbox"));
+		header.append(this.createElement("span", {"class": "header-icon"}));
+		header.append(this.createElement("span", {"class": "header-title"}).html("Hangout Toolbox"));
 		
 		/*
 		 * Create pane body
