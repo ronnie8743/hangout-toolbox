@@ -5,14 +5,6 @@
 	*/
 	function LowerThird(){
 		/**
-		 * @LowerThird.maxHeight - defines the maximum window height
-		 * @public
-		 * @const 
-		 * @type {Number}
-		*/
-		this.maxHeight = $(window).height();
-
-		/**
 		 * @LowerThird.globalShow - defines the initial state of globalShow 
 		 * @private
 		 * @type {boolean}
@@ -79,21 +71,6 @@
 		 * Bind gapi events when API is ready
 		*/
 		gapi.hangout.onApiReady.add(this.onApiReady.bind(this));
-		
-		/*
-		 * Bind window events when window size has changed
-		*/
-		jQuery(window).resize(this.onWindowResize.bind(this));
-	}
-	
-	/**
-	 * @onWindowResize - Fired when window resizes
-	 * @private
-	 * @param evt {jQueryEventObject}
-	*/
-	LowerThird.prototype.onWindowResize = function(evt){
-		this.maxHeight = $(window).height();
-		this.scale();
 	}
 
 	/**
@@ -134,7 +111,7 @@
 		/*
 		 * Create pane body
 		*/
-		var body = div.clone().attr({"id": "body"});
+		var lowerbody = div.clone().attr({"id": "lowerbody"});
 
 		/*
 		 * Creates the form element
@@ -202,7 +179,7 @@
 		fieldset_presets.append(inputText_preset, button_save,presetlist);
 
 		form.append(fieldset_lowerthird,fieldset_clock,fieldset_custom,fieldset_presets, spacer);
-		body.append(form);
+		lowerbody.append(form);
 
 		/*
 		 * Create canvas elements for the lower third
@@ -214,7 +191,7 @@
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#app-lowerthird").append(body);
+		jQuery("#app-lowerthird").append(lowerbody);
 
         new jscolor.color(document.getElementById('Color'), {});
 		/*
@@ -230,7 +207,7 @@
 		/*
 		 * Bind scroll event to toggle shadow
 		*/
-		body.on("scroll", this.bodyOnScroll.bind(this));
+		lowerbody.on("scroll", this.bodyOnScroll.bind(this));
 	}
 
 	/**
@@ -732,29 +709,6 @@
 		height = maxHeight;
 		return[width, height];
 	}
-
-	/**
-	 * @scale - Scales the body for different resolutions
-	 * @public
-	*/
-	LowerThird.prototype.scale = function(){
-		/*
-		 * Set the maximum height of the body minus header, input div and footer
-		*/
-		jQuery("#body").height(this.maxHeight-84);
-	}
-
-	/**
-	 * @bodyOnScroll - Fired when the #body is scrolled
-	 * @private
-	 * @param evt {jQueryEventObject}
-	*/
-	LowerThird.prototype.bodyOnScroll = function(evt){
-		/*
-		 * Hide/Show shadow depending on scroll position
-		*/
-		jQuery("#body").scrollTop() > 0 ? jQuery(".shadow", "#container").show() : jQuery(".shadow", "#container").hide(); 
-	}
 	
 	/**
 	 * @getInputValue - Get Input values from form
@@ -866,7 +820,6 @@
 		if(event.isApiReady){
 			try {
 				this.buildDOM();
-				this.scale();
 				this.getParticipant();
 				this.generatePresets();
 				console.log("Lower Third App loaded!");
