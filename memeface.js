@@ -90,12 +90,10 @@
 				 'scale': faces[i].scale
 				});
 		}
-		console.log("Faces generated!");
 	}
 
 	MemeFace.prototype.toggleFace = function(evt){
 		var title = jQuery(evt.target).data("playable");
-		console.log("Clicked Face: ", title);
 		
 		if(this.globalShow === false){
 			this.overlays[title].setVisible(true);	
