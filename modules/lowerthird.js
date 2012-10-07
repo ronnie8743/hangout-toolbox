@@ -169,7 +169,7 @@
 
 		var presetlist			= this.createElement("ul", {"id":"lowerthird-preset-list"});
 
-		var dialog 				= this.createElement("div", {"id":"dialog-message","title":"First run notice"}).html("<p>You are running Lower Third for the first time. Please ba aware that all overlays will appear mirrored for you! Everyone else in the Hangout will see the overlays correctly!</p>")
+		var dialog 				= this.createElement("div", {"id":"dialog-message","title":"First run notice"}).html("<p>You are running Lower Third for the first time. Please be aware that all overlays will appear mirrored for you! <br />Everyone else in the Hangout will see the overlays correctly!</p>")
 		
 		/*
 		 * Append all elements
