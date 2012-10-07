@@ -47,7 +47,11 @@
 		/*
 		 * Create pane body
 		*/
+		var fieldset_memefaces	= this.createElement("fieldset", {"class": "fieldset"});
+		var legend_lowerthird	= this.createElement("legend", {"class": "legend"}).text("Meme Faces").appendTo(fieldset_memefaces);
+		var switch_memefaces	= this.createElement("a",{"id": "switch_memefaces", "class": "onoffswitch"});
 		var memebody = div.clone().attr({"id": "memebody"});
+		var form = this.createElement("form", {"id": "form"});
 
 		var grid_container		= div.clone().attr({"class":"grid_container"});
 		var grid_table			= this.createElement("table", {"class":"table_faces"});
@@ -62,10 +66,14 @@
 			}
 		}
 
-		grid_table.append(jQuery(content));
+		fieldset_memefaces.append(switch_memefaces, content);
+
+		form.append(fieldset_memefaces);
+		grid_table.append(form);
 		grid_container.append(grid_table);
 		jQuery("a[data-face]").live("click",this.toggleFace.bind(this));
 
+		switch_memefaces.click(this.toggleShow.bind(this));
 		memebody.append(grid_container);
 
 		/*
@@ -93,23 +101,56 @@
 		}
 	}
 
+	/**
+	 * @toggleShow - Fired when #button is clicked
+	 * @public
+	 * @see LowerThird.buildDOM
+	*/
+	MemeFace.prototype.toggleShow = function(){
+		if(this.overlays[this.loadedoverlay]){
+			this.overlays[this.loadedoverlay].setVisible(false);
+			this.overlays[this.loadedoverlay].dispose();
+			delete this.overlays[this.loadedoverlay];
+			this.globalShowSaved = false;
+		}
+
+ 		if(this.globalShow === true){
+            $.each(this.overlays, function(key, val) {
+              if(key != title && val['active'] == true) {
+                    that.overlays[key]['overlay'].setVisible(false);	
+                    that.overlays[key]['active'] = false;
+                that.globalShow = false;
+              }
+            });
+			jQuery("#switch_memefaces").removeClass("onoffswitch").addClass("onoffswitch_active");
+			this.globalShow = false;
+			return;
+		} else {
+		    jQuery("#switch_memefaces").removeClass("onoffswitch_active").addClass("onoffswitch");
+		    this.globalShow = false;
+        }
+	}
+
+
 	MemeFace.prototype.toggleFace = function(evt){
 		var title = jQuery(evt.target).data("face");
-    var that = this;
+        var that = this;
 
-    $.each(this.overlays, function(key, val) {
-      if(key != title && val['active'] == true) {
-  			that.overlays[key]['overlay'].setVisible(false);	
-	  		that.overlays[key]['active'] = false;
-        that.globalShow = false;
-      }
-    });
-		
+        $.each(this.overlays, function(key, val) {
+          if(key != title && val['active'] == true) {
+                that.overlays[key]['overlay'].setVisible(false);	
+                that.overlays[key]['active'] = false;
+            that.globalShow = false;
+          }
+        });
+            
 		if(this.globalShow === false) {
+			jQuery("#switch_memefaces").removeClass("onoffswitch").addClass("onoffswitch_active");
 			this.overlays[title]['overlay'].setVisible(true);	
 			this.overlays[title]['active'] = true;
 			this.globalShow = true;
 		}else{
+			jQuery("#switch_memefaces").addClass("onoffswitch").removeClass("onoffswitch_active");
 			this.overlays[title]['overlay'].setVisible(false);	
 			this.overlays[title]['active'] = false;
 			this.globalShow = false;
