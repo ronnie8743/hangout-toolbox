@@ -782,7 +782,8 @@ img {border:0;}
 }
 
 #stop{
-    float: right;
+    float: none;
+    margin-left: 105px;
 }
 
 .grid_container_sound
