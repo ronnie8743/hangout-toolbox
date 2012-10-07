@@ -30,8 +30,8 @@
 		/*
 	 	 * Append icon and title to header
 		*/
-		var button = this.createElement("button", {"id": "stop"}).text("Stop All").appendTo(soundbody);
-		
+		var stopbutton = this.createElement("button", {"id": "stop"}).text("Stop All").appendTo(soundbody);
+
 		/*
 		 * Create pane body
 		*/
@@ -56,7 +56,7 @@
 		grid_table.append(jQuery(content));
 		grid_container.append(grid_table);
 		jQuery("a[data-playable]").live("click",this.playSound.bind(this));
-		button.click(this.stopAll.bind(this));
+		stopbutton.click(this.stopAll.bind(this));
 
 
 		/*
