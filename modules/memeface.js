@@ -56,7 +56,7 @@
 			if((i % 3) == 0){
 				content += "<tr>";
 			}
-			content += "<td><a data-face='" + faces[i].title + "' class='btn-faces' style='background-image: url(https://mthangout.appspot.com/a/hangouttoolbox/i/small/" + faces[i].data + ");' title='" + faces[i].title + "'></a></td>";
+			content += "<td><a data-face='" + faces[i].title + "' class='btn-faces' style='background-image: url(https://s3.amazonaws.com/MT_Cloud/images/small/" + faces[i].data + ");' title='" + faces[i].title + "'></a></td>";
 			if((i % 3) == 2){
 				content += "</tr>";
 			}
@@ -81,7 +81,7 @@
 	*/
 	MemeFace.prototype.createFacesResources = function(){
 		for(var i = 0; i < faces.length; i++){
-			this.overlays[faces[i].title] = { 'resource': gapi.hangout.av.effects.createImageResource('https://mthangout.appspot.com/a/hangouttoolbox/i/' + faces[i].data), 'active': false };
+			this.overlays[faces[i].title] = { 'resource': gapi.hangout.av.effects.createImageResource('https://s3.amazonaws.com/MT_Cloud/images/' + faces[i].data), 'active': false };
 
 			this.overlays[faces[i].title]['overlay'] = this.overlays[faces[i].title]['resource'].createFaceTrackingOverlay(
 				{'trackingFeature': gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT, 
