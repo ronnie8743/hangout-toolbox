@@ -352,6 +352,7 @@ form .fieldrow {
     -ms-user-select: none;
     user-select: none;
 }
+.dialog{display: none;}
 /* Modal Notice */
 #basic-modal-content {display:none;}
 #simplemodal-overlay {background-color:#000; cursor:wait;}
