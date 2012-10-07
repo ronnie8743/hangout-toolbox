@@ -86,7 +86,7 @@
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Anonymous</a>"));
 		accordion.append(div.clone().attr({"id":"app-anonymous"}));
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>About & Support</a>"));
-		accordion.append(div.clone().attr({"id":"app-about"}).html("<p style='margin-left:10px;'>A Hangout Extension with several features.<br /><br />This toolbox provides several apps/extensions to improve your Hangout experience.<br /><br />It contains:<br /><ul style='margin-left:10px;'><li>Lower Third</li><li>Volume Control</li><li>De-Face</li><li>Anonymous</li><li>Soundboard</li></ul><br /><br /><p style='margin-left: 10px;'>Please visit us on <a href='https://plus.google.com/110344475746210074770/about' target='_blank'>Google+</a> or on our <a href='https://code.google.com/p/hangout-toolbox/' target='_blank'>project page</a></p><br /><br /><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YRQBKYGF38ZL' class='general-button-blue' target='_blank'>Fund Development</a>"));
+		accordion.append(div.clone().attr({"id":"app-about"}).html("<p style='margin-left:10px;'>A Hangout Extension with several features.<br /><br />This toolbox provides several apps/extensions to improve your Hangout experience.<br /><br />It contains:<br /><ul style='margin-left:10px;'><li>Lower Third</li><li>Volume Control</li><li>De-Face</li><li>Anonymous</li><li>Soundboard</li></ul><p style='margin-left: 10px;'>Please visit us on <a href='https://plus.google.com/110344475746210074770/about' target='_blank'>Google+</a> or on our <a href='https://code.google.com/p/hangout-toolbox/' target='_blank'>project page</a></p><br /><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YRQBKYGF38ZL' class='general-button-blue' target='_blank'>Fund Development</a>"));
 
 		/*
 		 * Create the footer Div
@@ -164,6 +164,15 @@
 					collapsible: true,
 					autoHeight: false,
 					active: false
+				})
+				.sortable({
+					axis: "y",
+					handle: "h3",
+					stop: function( event, ui ) {
+						// IE doesn't register the blur when sorting
+						// so trigger focusout handlers to remove .ui-state-focus
+						ui.item.children( "h3" ).triggerHandler( "focusout" );
+					}
 				});
 				this.scale();
 				var anonymousbar = new AnonymousBar();
