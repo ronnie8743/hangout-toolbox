@@ -81,8 +81,9 @@
 	*/
 	MemeFace.prototype.createFacesResources = function(){
 		for(var i = 0; i < faces.length; i++){
-			this.overlays[faces[i].title] = gapi.hangout.av.effects.createImageResource('https://mthangout.appspot.com/a/hangouttoolbox/i/' + faces[i].data)
-			.createFaceTrackingOverlay(
+			this.overlays[faces[i].title] = { 'resource': gapi.hangout.av.effects.createImageResource('https://mthangout.appspot.com/a/hangouttoolbox/i/' + faces[i].data), 'active': false };
+
+			this.overlays[faces[i].title]['overlay'] = this.overlays[faces[i].title]['resource'].createFaceTrackingOverlay(
 				{'trackingFeature': gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT, 
 				 'offset': {"x":0,"y":faces[i].offset},
 				 'rotateWithFace': true, 
@@ -94,12 +95,23 @@
 
 	MemeFace.prototype.toggleFace = function(evt){
 		var title = jQuery(evt.target).data("face");
+    var that = this;
+
+    $.each(this.overlays, function(key, val) {
+      if(key != title && val['active'] == true) {
+  			that.overlays[key]['overlay'].setVisible(false);	
+	  		that.overlays[key]['active'] = false;
+        that.globalShow = false;
+      }
+    });
 		
-		if(this.globalShow === false){
-			this.overlays[title].setVisible(true);	
+		if(this.globalShow === false) {
+			this.overlays[title]['overlay'].setVisible(true);	
+			this.overlays[title]['active'] = true;
 			this.globalShow = true;
 		}else{
-			this.overlays[title].setVisible(false);	
+			this.overlays[title]['overlay'].setVisible(false);	
+			this.overlays[title]['active'] = false;
 			this.globalShow = false;
 		}
 	}
