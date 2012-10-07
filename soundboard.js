@@ -28,15 +28,10 @@
 		var cleardiv = this.createElement("div", {"class": "clear"});
 
 		/*
-	 	 * Append icon and title to header
-		*/
-		var stopbutton = this.createElement("button", {"id": "stop"}).text("Stop All").appendTo(soundbody);
-
-		/*
 		 * Create pane body
 		*/
 		var soundbody = div.clone().attr({"id": "soundbody"});
-				
+		var stopbutton = this.createElement("button", {"id": "stop"}).text("Stop All").appendTo(soundbody);		
 		/*
 		 * Creates the form element
 		*/
