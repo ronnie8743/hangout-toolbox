@@ -168,6 +168,8 @@
 		var hr_line				= this.createElement("hr", {"class":"line"});
 
 		var presetlist			= this.createElement("ul", {"id":"lowerthird-preset-list"});
+
+		var dialog 				= this.createElement("div", {"id":"dialog-message","title":"First run notice"}).html("<p>The overlay is mirrored. <br />It looks fine for everyone else!</p>")
 		
 		/*
 		 * Append all elements
@@ -180,7 +182,7 @@
 		fieldset_presets.append(inputText_preset, button_save,presetlist);
 
 		form.append(fieldset_lowerthird,fieldset_clock,fieldset_custom,fieldset_presets, spacer);
-		lowerbody.append(form);
+		lowerbody.append(form,dialog);
 
 		/*
 		 * Create canvas elements for the lower third
@@ -620,10 +622,15 @@
 	 * @private
 	*/
 	LowerThird.prototype.DeletePreset = function(evt){
+		confirm = confirm("Do you want to delete this preset?");
 		id = evt.target.parentNode.id;
-		console.log(evt);
-		jQuery.jStorage.deleteKey(id);
-		this.generatePresets();
+		if(confirm == true){
+			jQuery.jStorage.deleteKey(id);
+			this.generatePresets();
+		}else{
+			this.generatePresets();
+		}
+		
 	}
 
 		/**
@@ -660,7 +667,6 @@
 			}else{
 				var offset = 0;
 			}
-			console.log(offset);
 			var storedImage = gapi.hangout.av.effects.createImageResource($.jStorage.get(id));
 			this.overlays[id] = storedImage.createOverlay({
 			});
@@ -803,7 +809,16 @@
 				this.generatePresets();
 				console.log("Lower Third App loaded!");
 				if($.jStorage.get("notice") != "true"){
-					$.modal('<div><h1>Notice</h1><h4>The overlay is mirrored. <br />It looks fine for everyone else!</h4></div>');
+					$( "#dialog-message" ).dialog({
+						modal: true,
+						dragable: false,
+						resizable: false,
+						buttons: {
+							Ok: function() {
+								$( this ).dialog( "close" );
+							}
+						}
+					});
 					$.jStorage.set("notice", "true");
 				}	
 			}
