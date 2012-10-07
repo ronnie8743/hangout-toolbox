@@ -97,7 +97,7 @@
 		footer.append(this.createElement("a",{"href": "https://google.me/+MoritzTolxdorff", "target": "_blank"}).html("+Moritz"));
 		footer.append(this.createElement("span").html(" &amp; "));
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
-		footer.append(this.createElement("span", {"class":"version"}).text("v 0.0.2"));
+		footer.append(this.createElement("span", {"class":"version"}).text("v 0.1.5"));
 
 		mainbody.append(accordion);
 
