@@ -1,5 +1,5 @@
 var version = "0.1.5";
-var build = document.lastModified;
+var build = Date.parse(document.lastModified);
 var faces = [
 	{title : "LOL", scale: 2.4, data : "lolface.png", offset: 0},
 	{title : "BOSS", scale: 2.5, data : "boss.png", offset: 0},
