@@ -68,11 +68,6 @@
 		 * Append DOM structure to container
 		*/
 		jQuery("#app-soundboard").append(soundbody);
-
-		/*
-		 * Bind scroll event to toggle shadow
-		*/
-		soundbody.on("scroll", this.bodyOnScroll.bind(this));
 	}
 
 	/**
