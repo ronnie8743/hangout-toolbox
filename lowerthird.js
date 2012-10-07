@@ -203,11 +203,6 @@
 		inputText_tagline.click(this.clearTagline.bind(this));
 		inputText_tagline.focus(this.clearTagline.bind(this));
 		button_save.click(this.SavePreset.bind(this));
-
-		/*
-		 * Bind scroll event to toggle shadow
-		*/
-		lowerbody.on("scroll", this.bodyOnScroll.bind(this));
 	}
 
 	/**
