@@ -477,7 +477,7 @@ img {border:0;}
  * CSS for De-Face
 */
 .grid_container { margin: 0px; }
-.table_faces { height: 50%; width: 295px; }
+.table_faces { height: 50%; width: 250px; }
 .grid { width: 260px; float: left; margin-bottom:10px; }
 .grid > .btn-faces:first-child { margin-left:0 !important; }
 .btn-faces {

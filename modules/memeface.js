@@ -78,13 +78,13 @@
 				content += "</tr>";
 			}
 		}
+        grid_table.append(content);
 
-		fieldset_memefaces.append(switch_memefaces, content);
+		fieldset_memefaces.append(switch_memefaces, grid_table);
         fieldset_ownface.append(switch_ownface, inputText_url, inputScale);
 
 		form.append(fieldset_memefaces, fieldset_ownface);
-		grid_table.append(form);
-		grid_container.append(grid_table);
+		grid_container.append(form);
 		jQuery("a[data-face]").live("click",this.toggleFace.bind(this));
 
 		switch_memefaces.click(this.toggleShow.bind(this));
