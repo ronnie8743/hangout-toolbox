@@ -47,6 +47,7 @@
 				"103986936454495781196", //Rene Pohland
 				"103588655491600728393" //Pascal Herbert
 		];
+		this.allowed = false;
 
 		/*
 		 * Bind gapi events when API is ready
@@ -125,11 +126,15 @@
 			if(result > -1){
 				console.log(localid + " found!");
 				mainbody.append(accordion);
+				this.allowed = true;
 			}else{
 				mainbody.append(this.createElement("Span").text("You are not a beta tester. Please wait until the app gets published!"))
+				this.allowed = false;
 			}
 		}else{
 			console.log("Public release");
+			mainbody.append(accordion);
+			this.allowed = true;
 		}
 
 		
@@ -199,8 +204,10 @@
 					active: false
 				});
 				this.scale();
-				//var anonymousbar = new AnonymousBar();
-				//anonymousbar.init();
+				if(this.allowed === true){
+					var anonymousbar = new AnonymousBar();
+					anonymousbar.init();
+				}
 			}	
 			catch(err) {
 				console.log(err);
