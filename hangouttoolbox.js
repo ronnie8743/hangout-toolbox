@@ -34,7 +34,11 @@
 		 * @const 
 		 * @type {Number}
 		*/
-		this.maxHeight = $(window).height();
+        if(window.innerHeight > 0) {
+		  this.maxHeight = window.innerHeight;
+        } else {
+		  this.maxHeight = $(window).height();
+        }
 
 		this.betaTester = [
 				"117596712775912423303", //Moritz Tolxdorff
