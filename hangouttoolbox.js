@@ -113,7 +113,7 @@
 		footer.append(this.createElement("span", {"class":"version"}).text("v " + version));
 
 		if(this.release === "beta"){
-			console.log("Beta release" + version);
+			console.log("Beta release " + version);
 			var uid = gapi.hangout.getParticipantId();
 			var p = gapi.hangout.getParticipants();
 			for(i = 0; i < p.length; i++) {
@@ -130,7 +130,7 @@
 				this.allowed = false;
 			}
 		}else{
-			console.log("Public release" + version);
+			console.log("Public release " + version);
 			mainbody.append(accordion);
 			this.allowed = true;
 		}
