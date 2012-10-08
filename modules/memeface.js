@@ -241,7 +241,7 @@
 	MemeFace.prototype.onApiReady = function(event){
 		if(event.isApiReady){
 			try {
-				console.log("Meme Face loaded!");
+				
 				this.buildDOM();
 				this.createFacesResources();
 			}	

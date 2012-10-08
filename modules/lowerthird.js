@@ -807,7 +807,7 @@
 				this.buildDOM();
 				this.getParticipant();
 				this.generatePresets();
-				console.log("Lower Third App loaded!");
+				
 				if($.jStorage.get("notice") != "true"){
 					$( "#dialog-message" ).dialog({
 						modal: true,

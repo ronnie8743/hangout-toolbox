@@ -110,7 +110,7 @@
 		if(event.isApiReady){
 			try {
 				this.buildDOM();
-				console.log("Soundboard loaded!");
+				
 				this.createSoundEffects();
 			}
 			catch(err) {

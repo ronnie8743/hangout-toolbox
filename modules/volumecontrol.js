@@ -310,7 +310,7 @@
 			try {
 				this.buildDOM();
 				this.generateControlls();
-				console.log("Volume Control loaded!");
+				
 			}
 			catch(err) {
 				console.log(err);
