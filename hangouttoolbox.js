@@ -34,7 +34,7 @@
 		 * @const 
 		 * @type {Number}
 		*/
-		this.maxHeight = jQuery(window).height();
+		this.maxHeight = $(window).height();
 
 		this.betaTester = [
 				"117596712775912423303", //Moritz Tolxdorff
@@ -59,6 +59,17 @@
 	}
 
 	/**
+	 * @onWindowResize - Fired when window resizes
+	 * @private
+	 * @param evt {jQueryEventObject}
+	*/
+	HangoutToolbox.prototype.onWindowResize = function(evt){
+		console.log("Window resized" + this.maxHeight);
+		this.maxHeight = $(window).height();
+		this.scale();
+	}
+
+	/**
 	 * @buildDOM - Building the DOM structure
 	 * @private
 	*/
@@ -80,7 +91,7 @@
 		/*
 		 * Create pane body
 		*/
-		var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-152)+"px"});
+		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-160)+"px"});
 
 		/*
 		 * Create Accordion
@@ -110,22 +121,12 @@
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
 		footer.append(this.createElement("span", {"class":"version"}).text("v " + version));
 
-		mainbody.append(accordion);
+		body.append(accordion);
 
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#extension").append(header, mainbody, footer);
-	}
-
-	/**
-	 * @onWindowResize - Fired when window resizes
-	 * @private
-	 * @param evt {jQueryEventObject}
-	*/
-	HangoutToolbox.prototype.onWindowResize = function(evt){
-		this.maxHeight = $(window).height();
-		this.scale();
+		jQuery("#extension").append(header, body, footer);
 	}
 
 	/**
@@ -136,19 +137,8 @@
 		/*
 		 * Set the maximum height of the body minus header, input div and footer
 		*/
-		jQuery("#mainbody").height(this.maxHeight-54);
-	}
-
-	/**
-	 * @bodyOnScroll - Fired when the #body is scrolled
-	 * @private
-	 * @param evt {jQueryEventObject}
-	*/
-	HangoutToolbox.prototype.bodyOnScroll = function(evt){
-		/*
-		 * Hide/Show shadow depending on scroll position
-		*/
-		jQuery("#mainbody").scrollTop() > 0 ? jQuery(".shadow", "#extension").show() : jQuery(".shadow", "#extension").hide(); 
+		jQuery("#body").height(this.maxHeight-160);
+		console.log(this.maxHeight);
 	}
 
 	/**
@@ -171,12 +161,12 @@
 			try {
 				console.log("Hangout Toolbox loaded!");
 				this.buildDOM();
+				this.scale();
 				$("#accordion").accordion({
 					collapsible: true,
 					autoHeight: false,
 					active: false
 				});
-				this.scale();
 				var anonymousbar = new AnonymousBar();
 				anonymousbar.init();
 			}	

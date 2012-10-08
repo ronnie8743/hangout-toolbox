@@ -1,4 +1,4 @@
-var version = "1.0.0-RC3-1";
+var version = "1.0.0-RC3-6";
 var faces = [
 	{title : "LOL", scale: 2.4, data : "lolface.png", offset: 0},
 	{title : "BOSS", scale: 2.5, data : "boss.png", offset: 0},

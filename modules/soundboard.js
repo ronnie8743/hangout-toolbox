@@ -71,15 +71,18 @@
 	*/
 	Soundboard.prototype.createSoundEffects = function(){
 		for(var i = 0; i < sounds.length; i++){
-			this.sounds[sounds[i].source] = gapi.hangout.av.effects.createAudioResource("https://s3.amazonaws.com/MT_Cloud/sounds/" + sounds[i].source)
-			.createSound({loop: sounds[i].loop || false, localOnly: false, volume: sounds[i].volume || 0.3});
+			try{
+				this.sounds[sounds[i].source] = gapi.hangout.av.effects.createAudioResource("https://mthangout.appengine.com/a/hangouttoolbox/s/" + sounds[i].source)
+				.createSound({loop: sounds[i].loop || false, localOnly: false, volume: sounds[i].volume || 0.3});
+			}catch(e){
+				console.log(e);
+			}
 		}
 	}
 
 	Soundboard.prototype.playSound = function(event){
 		var file = jQuery(event.target).data("playable");
 		this.sounds[file] && this.sounds[file].play();
-		console.log(this.sounds[file].getURL());
 	}
 
 	Soundboard.prototype.stopAll = function(event){
@@ -110,7 +113,6 @@
 		if(event.isApiReady){
 			try {
 				this.buildDOM();
-				
 				this.createSoundEffects();
 			}
 			catch(err) {
