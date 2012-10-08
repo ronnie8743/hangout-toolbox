@@ -170,7 +170,7 @@
             if(url != '') {
                 this.overlayOwnFace = gapi.hangout.av.effects.createImageResource(url).createFaceTrackingOverlay(
                     {'trackingFeature': gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT, 
-                     'offset': {"x":0,"y":faces[i].offset},
+                     'offset': {"x":0,"y":0},
                      'rotateWithFace': true, 
                      'scaleWithFace': true, 
                      'scale': $('#Scale').slider('value')
