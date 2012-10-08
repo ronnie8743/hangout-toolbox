@@ -170,6 +170,7 @@
 		var presetlist			= this.createElement("ul", {"id":"lowerthird-preset-list"});
 
 		var dialog 				= this.createElement("div", {"id":"dialog-message","title":"First run notice","class":"dialog"}).html("<p>You are running the Hangout Toolbox for the first time. Please be aware that all overlays of Lower Third will appear mirrored for you! <br />Everyone else in the Hangout will see the overlays correctly!</p>")
+		var error1 				= this.createElement("div", {"id":"dialog-error1","title":"No name entered","class":"dialog"}).html("<p>Please enter a name for your preset first!</p>")
 		
 		/*
 		 * Append all elements
@@ -182,7 +183,7 @@
 		fieldset_presets.append(inputText_preset, button_save,presetlist);
 
 		form.append(fieldset_lowerthird,fieldset_clock,fieldset_custom,fieldset_presets, spacer);
-		lowerbody.append(form,dialog);
+		lowerbody.append(form,dialog,error1);
 
 		/*
 		 * Create canvas elements for the lower third
@@ -587,8 +588,16 @@
 		if(this.globalShow === true){
 			var name = this.getInputValue("PreName");
 			if(name === ""){
-				$.modal('<div><h1>Alert</h1><h4>Please enter a name for your preset first!</h4></div>');
-				//alert("Please enter a name for your preset first!");
+				$( "#dialog-error1" ).dialog({
+						modal: true,
+						draggable: false,
+						resizable: false,
+						buttons: {
+							Ok: function() {
+								$( this ).dialog( "close" );
+							}
+						}
+					});
 				return;
 				name = "default";
 			}
@@ -603,12 +612,14 @@
 		}
 		if(this.globalShowCustom === true){
 			var name = this.getInputValue("PreName");
-			var data = this.customfullcanvas;
-			try{
-				jQuery.jStorage.set("precustom_"+name, data);
-			}catch(e){
-				if(e.code === 22 || e.code === 1014){
-					alert("No space left in local storage! Please delete presets!");
+			if(name === ""){
+				var data = this.customfullcanvas;
+				try{
+					jQuery.jStorage.set("precustom_"+name, data);
+				}catch(e){
+					if(e.code === 22 || e.code === 1014){
+						alert("No space left in local storage! Please delete presets!");
+					}
 				}
 			}
 		}		
@@ -819,6 +830,7 @@
 							}
 						}
 					});
+					
 					$.jStorage.set("notice", "true");
 				}	
 			}
