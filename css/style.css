@@ -13,6 +13,9 @@ body {color: #222; font: normal 13px arial,sans-serif; line-height: 18px;}
     font-weight: normal;
     border-top: 1px solid #D9D9D9;
     padding: 0 10px;
+    position: absolute;
+    bottom: 0px;
+    width: 280px;
 }
 .footer_note { font-size:10px; font-family:verdana; float:left; position: relative; left: 0px; top: 0px;}
 #footer a {
@@ -43,7 +46,7 @@ body {color: #222; font: normal 13px arial,sans-serif; line-height: 18px;}
     -ms-user-select: none;
     user-select: none;
 }
-#mainbody {overflow-y:auto; padding-top: 0px; padding-bottom: 0px;}
+#mainbody {overflow-y:auto; padding-top: 0px; padding-bottom: 0px; position: relative;}
 .clear {clear: both;}
 .header-icon {
     background-image: url('https://mthangout.appspot.com/a/hangouttoolbox/i/toolbox_16.png');

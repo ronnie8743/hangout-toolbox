@@ -64,9 +64,9 @@
 	 * @param evt {jQueryEventObject}
 	*/
 	HangoutToolbox.prototype.onWindowResize = function(evt){
-		console.log("Window resized" + this.maxHeight);
-		this.maxHeight = $(window).height();
-		this.scale();
+		//console.log("Window resized: " + this.maxHeight + " px");
+		//this.maxHeight = $(window).height();
+		//this.scale();
 	}
 
 	/**
@@ -89,9 +89,10 @@
 		header.append(this.createElement("span", {"class": "header-title"}).html("Hangout Toolbox"));
 		
 		/*
-		 * Create pane body
+		 * Create pane mainbody
 		*/
-		var body = div.clone().attr({"id": "body"}).css({"height": (this.maxHeight-160)+"px"});
+		//var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-57)+"px"});
+		var mainbody = div.clone().attr({"id": "mainbody"});
 
 		/*
 		 * Create Accordion
@@ -121,24 +122,23 @@
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
 		footer.append(this.createElement("span", {"class":"version"}).text("v " + version));
 
-		body.append(accordion);
+		mainbody.append(accordion);
 
 		/*
 		 * Append DOM structure to container
 		*/
-		jQuery("#extension").append(header, body, footer);
+		jQuery("#extension").append(header, mainbody, footer);
 	}
 
 	/**
-	 * @scale - Scales the body for different resolutions
+	 * @scale - Scales the mainbody for different resolutions
 	 * @public
 	*/
 	HangoutToolbox.prototype.scale = function(){
 		/*
-		 * Set the maximum height of the body minus header, input div and footer
+		 * Set the maximum height of the mainbody minus header, input div and footer
 		*/
-		jQuery("#body").height(this.maxHeight-160);
-		console.log(this.maxHeight);
+		//jQuery("#mainbody").height(this.maxHeight-57);
 	}
 
 	/**
@@ -161,12 +161,12 @@
 			try {
 				console.log("Hangout Toolbox loaded!");
 				this.buildDOM();
-				this.scale();
 				$("#accordion").accordion({
 					collapsible: true,
 					autoHeight: false,
 					active: false
 				});
+				//this.scale();
 				var anonymousbar = new AnonymousBar();
 				anonymousbar.init();
 			}	
