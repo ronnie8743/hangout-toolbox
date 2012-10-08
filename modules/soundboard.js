@@ -72,7 +72,7 @@
 	Soundboard.prototype.createSoundEffects = function(){
 		for(var i = 0; i < sounds.length; i++){
 			try{
-				this.sounds[sounds[i].source] = gapi.hangout.av.effects.createAudioResource("https://www.tolxdorff.net/apps/hangouttoolbox/s/" + sounds[i].source)
+				this.sounds[sounds[i].source] = gapi.hangout.av.effects.createAudioResource("http://www.tolxdorff.net/apps/hangouttoolbox/s/" + sounds[i].source)
 				.createSound({loop: sounds[i].loop || false, localOnly: false, volume: sounds[i].volume || 0.3});
 			}catch(e){
 				console.log(e);
