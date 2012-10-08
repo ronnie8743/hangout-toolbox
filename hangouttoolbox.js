@@ -65,8 +65,7 @@
 	*/
 	HangoutToolbox.prototype.onWindowResize = function(evt){
 		//console.log("Window resized: " + this.maxHeight + " px");
-		//this.maxHeight = $(window).height();
-		//this.scale();
+		this.scale();
 	}
 
 	/**
@@ -92,7 +91,7 @@
 		 * Create pane mainbody
 		*/
 		//var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-57)+"px"});
-		var mainbody = div.clone().attr({"id": "mainbody"});
+		var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-162)+"px"});
 
 		/*
 		 * Create Accordion
@@ -138,7 +137,7 @@
 		/*
 		 * Set the maximum height of the mainbody minus header, input div and footer
 		*/
-		//jQuery("#mainbody").height(this.maxHeight-57);
+		jQuery("#mainbody").height(this.maxHeight-57);
 	}
 
 	/**
@@ -166,7 +165,7 @@
 					autoHeight: false,
 					active: false
 				});
-				//this.scale();
+				this.scale();
 				var anonymousbar = new AnonymousBar();
 				anonymousbar.init();
 			}	

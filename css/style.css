@@ -357,14 +357,6 @@ form .fieldrow {
 }
 .dialog{display: none;}
 /* Modal Notice */
-#basic-modal-content {display:none;}
-#simplemodal-overlay {background-color:#000; cursor:wait;}
-#simplemodal-container {height:140px; width:230px; color:#000; background-color:#c0c0c0; border:2px solid #444; padding:5px;}
-#simplemodal-container .simplemodal-data {padding:0px;}
-#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
-#simplemodal-container a {color:#ddd;}
-#simplemodal-container a.modalCloseImg {background:url(../i/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
-#simplemodal-container h3 {color:#000;}
 h3 {color:#000; font-size:18px; line-height:18px; font-weight:normal; margin:0 0 8px 0;}
 h4 {color:#000; font-size:16px; line-height:16px; font-weight:normal; margin:0 0 8px 0;}
 img {border:0;}

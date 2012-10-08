@@ -12,7 +12,6 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 
 		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/jstorage.js"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/jquery.simplemodal.js"></script>
 		<script src="//mthangout.appspot.com/a/hangouttoolbox/jscolor/jscolor.js"></script>
 		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/analytics.js"></script> 
 		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js"></script> 
