@@ -38,7 +38,7 @@
 
 		this.release = "beta";
 		this.betaTester = [
-				//"117596712775912423303", //Moritz Tolxdorff
+				"117596712775912423303", //Moritz Tolxdorff
 				"104514437420477125478", //Martin Thielecke
 				"102408750978338972864", //Peter Liebetrau
 				"108751342867466333780", //Guido Hartenberg
@@ -113,7 +113,7 @@
 		footer.append(this.createElement("span", {"class":"version"}).text("v " + version));
 
 		if(this.release === "beta"){
-			console.log("Beta release");
+			console.log("Beta release" + version);
 			var uid = gapi.hangout.getParticipantId();
 			var p = gapi.hangout.getParticipants();
 			for(i = 0; i < p.length; i++) {
@@ -122,9 +122,7 @@
 				}
 			}
 			var result = jQuery.inArray(localid, this.betaTester);
-			console.log(result,localid);
 			if(result > -1){
-				console.log(localid + " found!");
 				mainbody.append(accordion);
 				this.allowed = true;
 			}else{
@@ -132,7 +130,7 @@
 				this.allowed = false;
 			}
 		}else{
-			console.log("Public release");
+			console.log("Public release" + version);
 			mainbody.append(accordion);
 			this.allowed = true;
 		}
