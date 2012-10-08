@@ -12,7 +12,6 @@ var faces = [
 ];
 
 var sounds = [
-	{title : "Dramatic!", source : "dramatic.wav", loop : false, volume : 0.5},
 	{title : "Applause", source : "applause.wav", loop : false},
 	{title : "Silence", source : "silence.wav", loop : false, volume : 1.0},
 	{title : "HA HA!", source : "haha.wav", loop : false, volume : 0.6},
@@ -29,9 +28,6 @@ var sounds = [
 	{title : "Kiss", source : "kiss.wav", loop : false, volume : 0.6},
 	{title : "Snore", source : "snore.wav", loop : false, volume : 0.4},
 	{title : "Intercom", source : "intercom.wav", loop : false, volume : 0.6},
-	{title : "Yakety", source : "yakety.wav", loop : false},
-	{title : "News", source : "news.wav", loop : false, volume : 0.9},
-	{title : "GBU", source : "GBU.wav", loop : false, volume : 0.7},
 	{title : "Hallelujah", source : "hallelujah.wav", loop : false},
 	{title : "Laugh", source : "laugh.wav", loop : false},
 	{title : "Pacman", source : "pacman.wav", loop : false},
@@ -42,8 +38,6 @@ var sounds = [
 	{title : "Squeaky", source : "squeaky.wav", loop : false, volume : 0.6},
 	{title : "Mario", source : "mario.wav", loop : false,volume : 0.5},
 	{title : "Whistle", source : "whistle.wav", loop : false, volume : 0.6},
-	{title : "Elvis", source : "elvis.wav", loop : false, volume : 0.6},
-	{title : "Thinking", source : "thinking.wav", loop : false, volume : 0.6},
 	{title : "Psycho", source : "psycho.wav", loop : false, volume : 0.6}
 ];
 
