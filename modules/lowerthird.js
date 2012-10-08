@@ -169,8 +169,8 @@
 
 		var presetlist			= this.createElement("ul", {"id":"lowerthird-preset-list"});
 
-		var dialog 				= this.createElement("div", {"id":"dialog-message","title":"First run notice","class":"dialog"}).html("<p>You are running the Hangout Toolbox for the first time. Please be aware that all overlays of Lower Third will appear mirrored for you! <br />Everyone else in the Hangout will see the overlays correctly!</p>")
-		var error1 				= this.createElement("div", {"id":"dialog-error1","title":"No name entered","class":"dialog"}).html("<p>Please enter a name for your preset first!</p>")
+		var dialog 				= this.createElement("div", {"id":"dialog-message","title":"First run notice","class":"dialog"}).html("<p>You are running the Hangout Toolbox for the first time. Please be aware that all overlays of Lower Third will appear mirrored for you! <br />Everyone else in the Hangout will see the overlays correctly!</p>");
+		var error1 				= this.createElement("div", {"id":"dialog-error1","title":"No name entered","class":"error"}).html("<p>Please enter a name for your preset first!</p>");
 		
 		/*
 		 * Append all elements
@@ -613,13 +613,24 @@
 		if(this.globalShowCustom === true){
 			var name = this.getInputValue("PreName");
 			if(name === ""){
-				var data = this.customfullcanvas;
-				try{
-					jQuery.jStorage.set("precustom_"+name, data);
-				}catch(e){
-					if(e.code === 22 || e.code === 1014){
-						alert("No space left in local storage! Please delete presets!");
-					}
+				$( "#dialog-error1" ).dialog({
+						modal: true,
+						draggable: false,
+						resizable: false,
+						buttons: {
+							Ok: function() {
+								$( this ).dialog( "close" );
+							}
+						}
+					});
+				return;
+			}
+			var data = this.customfullcanvas;
+			try{
+				jQuery.jStorage.set("precustom_"+name, data);
+			}catch(e){
+				if(e.code === 22 || e.code === 1014){
+					alert("No space left in local storage! Please delete presets!");
 				}
 			}
 		}		
