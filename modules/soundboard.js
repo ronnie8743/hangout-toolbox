@@ -53,7 +53,6 @@
 		jQuery("a[data-playable]").live("click",this.playSound.bind(this));
 		stopbutton.click(this.stopAll.bind(this));
 
-
 		/*
 		 * Append all elements
 		*/
@@ -80,6 +79,7 @@
 	Soundboard.prototype.playSound = function(event){
 		var file = jQuery(event.target).data("playable");
 		this.sounds[file] && this.sounds[file].play();
+		console.log(this.sounds[file].getURL());
 	}
 
 	Soundboard.prototype.stopAll = function(event){

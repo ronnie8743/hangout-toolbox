@@ -36,7 +36,6 @@
 		*/
 		this.maxHeight = jQuery(window).height();
 
-		this.release = "beta";
 		this.betaTester = [
 				"117596712775912423303", //Moritz Tolxdorff
 				"104514437420477125478", //Martin Thielecke
@@ -47,7 +46,6 @@
 				"103986936454495781196", //Rene Pohland
 				"103588655491600728393" //Pascal Herbert
 		];
-		this.allowed = false;
 
 		/*
 		 * Bind gapi events when API is ready
@@ -112,30 +110,7 @@
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
 		footer.append(this.createElement("span", {"class":"version"}).text("v " + version));
 
-		if(this.release === "beta"){
-			console.log("Beta release " + version);
-			var uid = gapi.hangout.getParticipantId();
-			var p = gapi.hangout.getParticipants();
-			for(i = 0; i < p.length; i++) {
-				if(p[i].id == uid){
-					var localid = p[i].person.id;
-				}
-			}
-			var result = jQuery.inArray(localid, this.betaTester);
-			if(result > -1){
-				mainbody.append(accordion);
-				this.allowed = true;
-			}else{
-				mainbody.append(this.createElement("Span").text("You are not a beta tester. Please wait until the app gets published!"))
-				this.allowed = false;
-			}
-		}else{
-			console.log("Public release " + version);
-			mainbody.append(accordion);
-			this.allowed = true;
-		}
-
-		
+		mainbody.append(accordion);
 
 		/*
 		 * Append DOM structure to container
@@ -202,10 +177,8 @@
 					active: false
 				});
 				this.scale();
-				if(this.allowed === true){
-					var anonymousbar = new AnonymousBar();
-					anonymousbar.init();
-				}
+				var anonymousbar = new AnonymousBar();
+				anonymousbar.init();
 			}	
 			catch(err) {
 				console.log(err);
