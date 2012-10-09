@@ -279,7 +279,8 @@
 	 		 * If a participant is using the app use their profile picture and name instead of the placholders
 			*/
 			if(cUser.person){
-				image.attr({"src": cUser.person.image.url, "title": cUser.person.displayName})
+				//image.attr({"src": cUser.person.image.url, "title": cUser.person.displayName});
+				var image = this.createElement("img", {"src": cUser.person.image.url, "title": cUser.person.displayName}).appendTo(li);
 			}
 
 			/*
