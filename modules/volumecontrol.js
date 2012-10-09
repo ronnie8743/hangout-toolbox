@@ -251,7 +251,10 @@
 	 		 * Creating the profile image
 			*/
 			//var image = this.createElement("img", {"src": placeholderImage, "title": "Unknown"}).appendTo(li);
-
+			if(cUser.person){
+				//image.attr({"src": cUser.person.image.url, "title": cUser.person.displayName});
+				var image = this.createElement("img", {"src": cUser.person.image.url, "title": cUser.person.displayName}).appendTo(li);
+			}
 			/*
 	 		 * Creating the slider element
 			*/
@@ -278,10 +281,7 @@
 			/*
 	 		 * If a participant is using the app use their profile picture and name instead of the placholders
 			*/
-			if(cUser.person){
-				//image.attr({"src": cUser.person.image.url, "title": cUser.person.displayName});
-				var image = this.createElement("img", {"src": cUser.person.image.url, "title": cUser.person.displayName}).appendTo(li);
-			}
+			
 
 			/*
 	 		 * Appending the mute button to the li element and the li to the ul element
