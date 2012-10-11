@@ -13,18 +13,18 @@
 		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/jstorage.js"></script>
 		<script src="//mthangout.appspot.com/a/hangouttoolbox/jscolor/jscolor.js"></script>
 		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/analytics.js"></script> 
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js?v=1.0.3"></script> 
+		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js?v=1.0.5"></script> 
 
 		<link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/style.css" />
 		
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/hangouttoolbox.js?v=1.0.3"></script>
+		<script src="//mthangout.appspot.com/a/hangouttoolbox/hangouttoolbox.js?v=1.0.5"></script>
 		
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/lowerthird.js?v=1.0.3"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/soundboard.js?v=1.0.3"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/volumecontrol.js?v=1.0.3"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/memeface.js?v=1.0.3"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/anonymous.js?v=1.0.3"></script>
+		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/lowerthird.js?v=1.0.5"></script>
+		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/soundboard.js?v=1.0.5"></script>
+		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/volumecontrol.js?v=1.0.5"></script>
+		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/memeface.js?v=1.0.5"></script>
+		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/anonymous.js?v=1.0.5"></script>
 		
 		<div id="extension"></div>
 	]]>
