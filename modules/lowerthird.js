@@ -58,6 +58,7 @@
 		this.customfullcanvas = "";
 		this.customcanvas = "";
 		this.loadedoverlay = "";
+        this.mirrored = true;
 
 		/**
 		 * @LowerThird.fileReader - Create  a new HTML5 file reader
@@ -125,11 +126,13 @@
 		var fieldset_lowerthird	= this.createElement("fieldset", {"class": "fieldset"});
 		var fieldset_clock		= this.createElement("fieldset", {"class": "fieldset"});
 		var fieldset_custom		= this.createElement("fieldset", {"class": "fieldset"});
+		var fieldset_mirrored	= this.createElement("fieldset", {"class": "fieldset"});
 		var fieldset_presets	= this.createElement("fieldset", {"class": "fieldset"});
 
 		var legend_lowerthird	= this.createElement("legend", {"class": "legend"}).text("Lower Third").appendTo(fieldset_lowerthird);
 		var legend_clock		= this.createElement("legend", {"class": "legend"}).text("Display clock").appendTo(fieldset_clock);
 		var legend_custom	 	= this.createElement("legend", {"class": "legend"}).text("Custom Overlay").appendTo(fieldset_custom);
+		var legend_mirrored		= this.createElement("legend", {"class": "legend"}).text("Mirror").appendTo(fieldset_mirrored);
 		var legend_preset 		= this.createElement("legend", {"class": "legend"}).text("Presets").appendTo(fieldset_presets);
 
 		var switch_lowerthird	= this.createElement("a",{"id": "switch_lowerthird", "class": "onoffswitch"});
@@ -137,6 +140,7 @@
 		var switch_custom		= this.createElement("a",{"id": "switch_custom", "class": "onoffswitch"});
 
 		var button_save			= this.createElement("a", {"id": "lowerthird-save-button", "class": "general-button-blue", "title":"Save preset"}).html("Save");
+		var button_mirror		= this.createElement("a", {"id": "lowerthird-mirror-button", "class": "general-button-blue", "title":"Mirror own video"}).html("Mirror my own video");
 
 		var radio_left			= this.createElement("input", {"type": "radio", "id":"radio-button-left", "name":"clock", "checked":"checked"});
 		var radio_left_text		= label.clone().attr({"for": "name"}).text("Left");
@@ -180,9 +184,10 @@
 		fieldset_lowerthird.append(switch_lowerthird, inputText_name,inputText_tagline,inputColor,inputFile_logo);
 		fieldset_clock.append(switch_clock, radio_left, radio_left_text, radio_right, radio_right_text);
 		fieldset_custom.append(switch_custom, inputFile_custom);
+		fieldset_mirrored.append(button_mirror);
 		fieldset_presets.append(inputText_preset, button_save,presetlist);
 
-		form.append(fieldset_lowerthird,fieldset_clock,fieldset_custom,fieldset_presets, spacer);
+		form.append(fieldset_lowerthird,fieldset_clock,fieldset_custom,fieldset_mirrored,fieldset_presets, spacer);
 		lowerbody.append(form,dialog,error1);
 
 		/*
@@ -207,6 +212,7 @@
 		inputText_tagline.click(this.clearTagline.bind(this));
 		inputText_tagline.focus(this.clearTagline.bind(this));
 		button_save.click(this.SavePreset.bind(this));
+		button_mirror.click(this.MirrorVideo.bind(this));
 	}
 
 	/**
@@ -579,6 +585,15 @@
 		//console.log(evt);
 		jQuery("#PreName").val(value);
 	}
+
+	/**
+	 * @MirrorVideo - toggle the own video mirroring
+	 * @private
+	*/
+	LowerThird.prototype.MirrorVideo = function() {
+        this.mirrored = !this.mirrored;
+        gapi.hangout.av.setLocalParticipantVideoMirrored(this.mirrored);
+    }
 
 	/**
 	 * @loadSaved - Loads the last used Overlay

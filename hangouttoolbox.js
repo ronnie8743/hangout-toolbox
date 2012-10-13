@@ -163,7 +163,6 @@
 		if(event.isApiReady){
 			try {
 				console.log("Hangout Toolbox loaded!");
-        gapi.hangout.av.setLocalParticipantVideoMirrored(false);
 				this.buildDOM();
 				$("#accordion").accordion({
 					collapsible: true,
