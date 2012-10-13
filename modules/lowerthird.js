@@ -136,7 +136,7 @@
 		var switch_clock		= this.createElement("a",{"id": "switch_clock", "class": "onoffswitch"});
 		var switch_custom		= this.createElement("a",{"id": "switch_custom", "class": "onoffswitch"});
 
-		var button_save			= this.createElement("a", {"id": "lowerthird-save-button", "class": "general-button-blue"}).html("Save");
+		var button_save			= this.createElement("a", {"id": "lowerthird-save-button", "class": "general-button-blue", "title":"Save preset"}).html("Save");
 
 		var radio_left			= this.createElement("input", {"type": "radio", "id":"radio-button-left", "name":"clock", "checked":"checked"});
 		var radio_left_text		= label.clone().attr({"for": "name"}).text("Left");
@@ -559,8 +559,8 @@
 			for(i = 0; i < presets_out.length; i++){
 				var label = presets_out[i].split("_");
 				var li = this.createElement("li", {"id": presets_out[i]}).text(label[1]);
-				var deleteButton = this.createElement("a",{"class":"lowerthird-delete-preset"});
-				var loadButton = this.createElement("a",{"class":"lowerthird-load-preset"});
+				var deleteButton = this.createElement("a",{"class":"lowerthird-delete-preset", "title":"Delete this preset.  WARNING: this cannot be undone!"});
+				var loadButton = this.createElement("a",{"class":"lowerthird-load-preset", "title":"Load this preset"});
 				deleteButton.click(this.DeletePreset.bind(this));
 				loadButton.click(this.loadPreset.bind(this));
 				li.click(this.loadPresetText.bind(this));
