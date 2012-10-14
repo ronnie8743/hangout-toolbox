@@ -102,12 +102,12 @@
 		*/
 		var tabs = div.clone().attr({"id":"tabs"});
 		var tabs_ul = this.createElement("ul");
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-lowerthird'>LT</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-volumecontrol'>VC</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-deface'>DF</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-soundboard'>SB</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-anonymous'>Anon</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-about'>?</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-1'>LT</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-2'>VC</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-3'>DF</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-4'>SB</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-5'>Anon</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-6'>?</a>"));
 		tabs.append(tabs_ul);
 		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Lower Third</a>"));
 		tabs.append(div.clone().attr({"id":"tabs-1"}));
@@ -180,8 +180,7 @@
 					active: false
 				});
 				$( "#tabs" ).tabs({
-            		collapsible: true,
-            		active: 1
+            		collapsible: true
        			 });
 				this.scale();
 				
