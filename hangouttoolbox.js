@@ -100,21 +100,29 @@
 		/*
 		 * Create Accordion
 		*/
-		var accordion = div.clone().attr({"id":"accordion"});
-		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Lower Third</a>"));
-		accordion.append(div.clone().attr({"id":"app-lowerthird"}));
-		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Volume Control</a>"));
-		accordion.append(div.clone().attr({"id":"app-volumecontrol"})); 
+		var tabs = div.clone().attr({"id":"tabs"});
+		var tabs_ul = this.createElement("ul");
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-lowerthird'>Lower Third</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-volumecontrol'>Volume Control</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-deface'>De-Face</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-soundboard'>Soundboard</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-anonymous'>Anonymous</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-about'>?</a>"));
+		tabs.append(tabs_ul);
+		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Lower Third</a>"));
+		tabs.append(div.clone().attr({"id":"app-lowerthird"}));
+		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Volume Control</a>"));
+		tabs.append(div.clone().attr({"id":"app-volumecontrol"})); 
 		/*accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Comment Tracker</a>"));
 		accordion.append(div.clone().attr({"id":"app-commenttracker"})); */
-		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>De-Face</a>"));
-		accordion.append(div.clone().attr({"id":"app-memeface"}));
-		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Soundboard</a>"));
-		accordion.append(div.clone().attr({"id":"app-soundboard"}));
-		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Anonymous</a>"));
-		accordion.append(div.clone().attr({"id":"app-anonymous"}));
-		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>About & Support</a>"));
-		accordion.append(div.clone().attr({"id":"app-about"}).html("<p style='margin-left:10px;'>A Hangout Extension with several features.<br /><br />This toolbox provides several apps/extensions to improve your Hangout experience.<br /><br />It contains:<br /><ul style='margin-left:10px;'><li>Lower Third</li><li>Volume Control</li><li>De-Face</li><li>Anonymous</li><li>Soundboard</li></ul><p style='margin-left: 10px;'>Please visit us on <a href='https://plus.google.com/110344475746210074770/about' target='_blank'>Google+</a> or on our <a href='https://code.google.com/p/hangout-toolbox/' target='_blank'>project page</a></p><br /><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YRQBKYGF38ZL' class='general-button-blue' target='_blank'>Fund Development</a>"));
+		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>De-Face</a>"));
+		tabs.append(div.clone().attr({"id":"app-memeface"}));
+		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Soundboard</a>"));
+		tabs.append(div.clone().attr({"id":"app-soundboard"}));
+		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Anonymous</a>"));
+		tabs.append(div.clone().attr({"id":"app-anonymous"}));
+		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>About & Support</a>"));
+		tabs.append(div.clone().attr({"id":"app-about"}).html("<p style='margin-left:10px;'>A Hangout Extension with several features.<br /><br />This toolbox provides several apps/extensions to improve your Hangout experience.<br /><br />It contains:<br /><ul style='margin-left:10px;'><li>Lower Third</li><li>Volume Control</li><li>De-Face</li><li>Anonymous</li><li>Soundboard</li></ul><p style='margin-left: 10px;'>Please visit us on <a href='https://plus.google.com/110344475746210074770/about' target='_blank'>Google+</a> or on our <a href='https://code.google.com/p/hangout-toolbox/' target='_blank'>project page</a></p><br /><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YRQBKYGF38ZL' class='general-button-blue' target='_blank'>Fund Development</a>"));
 
 		/*
 		 * Create the footer Div
@@ -126,8 +134,8 @@
 		footer.append(this.createElement("span").html(" &amp; "));
 		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
 		footer.append(this.createElement("span", {"class":"version"}).text("v " + version));
-
-		mainbody.append(accordion);
+		
+		mainbody.append(tabs);
 
 		/*
 		 * Append DOM structure to container
@@ -171,6 +179,10 @@
 					autoHeight: false,
 					active: false
 				});
+				$( "#tabs" ).tabs({
+            		collapsible: true,
+            		active: 1
+       			 });
 				this.scale();
 				
 				var lowerthird = new LowerThird();
