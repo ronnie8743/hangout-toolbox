@@ -174,11 +174,6 @@
 			try {
 				console.log("Hangout Toolbox loaded!");
 				this.buildDOM();
-				$("#accordion").accordion({
-					collapsible: true,
-					autoHeight: false,
-					active: false
-				});
 				$("#tabs").tabs({
             		collapsible: true,
             		active: 5
@@ -198,7 +193,6 @@
 			}	
 			catch(err) {
 				console.log(err);
-				//Ein Kommentar
 			}
 		}
 	}
