@@ -173,14 +173,14 @@
 				
 				var lowerthird = new LowerThird();
 				lowerthird.init();
-				var soundboard = new Soundboard();
-				soundboard.init();
 				var volumecontrol = new VolumeControl();
 				volumecontrol.init();
 				var memeface = new MemeFace();
 				memeface.init();
 				var anonymousbar = new AnonymousBar();
 				anonymousbar.init();
+				var soundboard = new Soundboard();
+				soundboard.init();
 			}	
 			catch(err) {
 				console.log(err);
