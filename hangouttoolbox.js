@@ -180,7 +180,8 @@
 					active: false
 				});
 				$("#tabs").tabs({
-            		collapsible: true
+            		collapsible: true,
+            		active: 5
        			});
 				this.scale();
 				
