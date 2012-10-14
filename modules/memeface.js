@@ -27,11 +27,6 @@
 		*/
 		this.canvas = null;
 		this.overlayOwnFace = null;
-
-		/*
-		 * Bind gapi events when API is ready
-		*/
-		gapi.hangout.onApiReady.add(this.onApiReady.bind(this));
 	}
 
 	/**
@@ -238,19 +233,8 @@
 	 * @private
 	 * @param event {gapi.hangout.apiReadyEvent}
 	*/
-	MemeFace.prototype.onApiReady = function(event){
-		if(event.isApiReady){
-			try {
-				
-				this.buildDOM();
-				this.createFacesResources();
-			}	
-			catch(err) {
-				console.log(err);
-			}
-		}
+	MemeFace.prototype.init = function(event){
+		this.buildDOM();
+		this.createFacesResources();
 	}
-
-	// Export instantiated LowerThird to main window
-	window["appController"] = new MemeFace();
 })()

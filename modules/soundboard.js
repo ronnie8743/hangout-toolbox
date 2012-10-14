@@ -6,11 +6,6 @@
 	function Soundboard(){
 
 		this.sounds = {};
-		
-		/*
-		 * Bind gapi events when API is ready
-		*/
-		gapi.hangout.onApiReady.add(this.onApiReady.bind(this));
 	}
 	
 	/**
@@ -109,17 +104,8 @@
 	 * @private
 	 * @param event {gapi.hangout.apiReadyEvent}
 	*/
-	Soundboard.prototype.onApiReady = function(event){
-		if(event.isApiReady){
-			try {
-				this.buildDOM();
-				this.createSoundEffects();
-			}
-			catch(err) {
-				console.log(err);
-			}
-		}
+	Soundboard.prototype.init = function(event){
+		this.buildDOM();
+		this.createSoundEffects();
 	}
-	// Export instantiated Soundboard to main window
-	window["appController"] = new Soundboard();
 })()

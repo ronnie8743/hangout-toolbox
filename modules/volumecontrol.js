@@ -37,7 +37,6 @@
 		/*
 		 * Bind gapi events when API is ready
 		*/
-		gapi.hangout.onApiReady.add(this.onApiReady.bind(this));
 		gapi.hangout.onParticipantsChanged.add(this.onParticipantsChanged.bind(this));
 	}
 	
@@ -306,19 +305,8 @@
 	 * @private
 	 * @param event {gapi.hangout.apiReadyEvent}
 	*/
-	VolumeControl.prototype.onApiReady = function(event){
-		if(event.isApiReady){
-			try {
-				this.buildDOM();
-				this.generateControlls();
-				
-			}
-			catch(err) {
-				console.log(err);
-			}
-		}
+	VolumeControl.prototype.init = function(event){
+		this.buildDOM();
+		this.generateControlls();
 	}
-
-	// Export instantiated VolumeControl to main window
-	window["appController"] = new VolumeControl();
 })()

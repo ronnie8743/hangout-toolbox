@@ -68,11 +68,6 @@
 		if(typeof FileReader !== "undefined"){
 			this.fileReader = new FileReader();
 		}
-		
-		/*
-		 * Bind gapi events when API is ready
-		*/
-		gapi.hangout.onApiReady.add(this.onApiReady.bind(this));
 	}
 
 	/**
@@ -838,34 +833,23 @@
 	 * @private
 	 * @param event {gapi.hangout.apiReadyEvent}
 	*/
-	LowerThird.prototype.onApiReady = function(event){
-		if(event.isApiReady){
-			try {
-				this.buildDOM();
-				this.getParticipant();
-				this.generatePresets();
-				
-				if($.jStorage.get("notice") != "true"){
-					$( "#dialog-message" ).dialog({
-						modal: true,
-						draggable: false,
-						resizable: false,
-						buttons: {
-							Ok: function() {
-								$( this ).dialog( "close" );
-							}
-						}
-					});
-					
-					$.jStorage.set("notice", "true");
-				}	
-			}
-			catch(err) {
-				console.log(err);
-			}
-		}
+	LowerThird.prototype.init = function(event){
+		this.buildDOM();
+		this.getParticipant();
+		this.generatePresets();
+		
+		if($.jStorage.get("notice") != "true"){
+			$( "#dialog-message" ).dialog({
+				modal: true,
+				draggable: false,
+				resizable: false,
+				buttons: {
+					Ok: function() {
+						$( this ).dialog( "close" );
+					}
+				}
+			});		
+			$.jStorage.set("notice", "true");
+		}	
 	}
-
-	// Export instantiated LowerThird to main window
-	window["appController"] = new LowerThird();
 })()
