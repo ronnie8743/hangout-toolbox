@@ -102,11 +102,11 @@
 		*/
 		var tabs = div.clone().attr({"id":"tabs"});
 		var tabs_ul = this.createElement("ul");
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-lowerthird'>Lower Third</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-volumecontrol'>Volume Control</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-deface'>De-Face</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-soundboard'>Soundboard</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tab-anonymous'>Anonymous</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-lowerthird'>LT</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-volumecontrol'>VC</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-deface'>DF</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-soundboard'>SB</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tab-anonymous'>Anon</a>"));
 		tabs_ul.append(this.createElement("li").html("<a href='#tab-about'>?</a>"));
 		tabs.append(tabs_ul);
 		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Lower Third</a>"));
