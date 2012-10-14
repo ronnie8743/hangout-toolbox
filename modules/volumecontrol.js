@@ -74,7 +74,7 @@ VolumeControl.prototype.buildDOM = function(){
 	/*
 	 * Append DOM structure to container
 	*/
-	jQuery("#app-volumecontrol").append(volumecontrolbody);
+	jQuery("#tabs-2").append(volumecontrolbody);
 }
 
 /**

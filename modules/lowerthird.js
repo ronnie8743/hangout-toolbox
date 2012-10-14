@@ -190,7 +190,7 @@ LowerThird.prototype.buildDOM = function(){
 	/*
 	 * Append DOM structure to container
 	*/
-	jQuery("#app-lowerthird").append(lowerbody);
+	jQuery("#tabs-1").append(lowerbody);
 
     new jscolor.color(document.getElementById('Color'), {});
 	/*

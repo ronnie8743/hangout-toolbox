@@ -50,7 +50,7 @@ Soundboard.prototype.buildDOM = function(){
 	/*
 	 * Append DOM structure to container
 	*/
-	jQuery("#app-soundboard").append(soundbody);
+	jQuery("#tabs-4").append(soundbody);
 }
 
 /**

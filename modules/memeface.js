@@ -84,7 +84,7 @@ MemeFace.prototype.buildDOM = function(){
 	/*
 	 * Append DOM structure to container
 	*/
-	jQuery("#app-memeface").append(memebody);
+	jQuery("#tabs-3").append(memebody);
     $('#Scale').slider({ 'orientation': 'horizontal', 'step': 0.1, 'min': 0, 'max': 4, 'value': 2, 'change': function() { that.rescale(); } });
 }
 
