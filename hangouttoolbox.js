@@ -197,7 +197,7 @@
 			}	
 			catch(err) {
 				console.log(err);
-				//Test
+				//Ein Kommentar
 			}
 		}
 	}
