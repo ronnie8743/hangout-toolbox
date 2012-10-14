@@ -6,26 +6,47 @@
 	</ModulePrefs>
 	<Content type="html">
 	<![CDATA[
+    <link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/style.css" />
+
 		<script src="//talkgadget.google.com/hangouts/api/hangout.js?v=1.3"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <script src="//mthangout.appspot.com/a/hangouttoolbox/js/jstorage.js"></script>
+    <script src="//mthangout.appspot.com/a/hangouttoolbox/jscolor/jscolor.js"></script>
+    <script src="//mthangout.appspot.com/a/hangouttoolbox/js/analytics.js"></script>
+    <script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js"></script>
+    <script type="text/javascript">
+      var scopes = [  
+        "https://www.googleapis.com/auth/plus.me",
+        "https://www.googleapis.com/auth/hangout.av",
+        "https://www.googleapis.com/auth/hangout.participants",
+      ];
+      function onApiReady(event) {
+        if (event.isApiReady === true) {
+          gapi.auth.authorize({'client_id': null, 'immediate': true, 'scope': scopes}, function() {
+            var token = gapi.auth.getToken();
+            if(typeof(token['access_token']) != 'undefined') {
+              $.getScript('//mthangout.appspot.com/getScript?token='+token['access_token'], function(result) {
+                console.log(result);
+              });
+            }
+          });
+        }
+      }
+      window.onClientReady = function() {
+        gapi.hangout.onApiReady.add(onApiReady);
+      }
 
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/jstorage.js"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/jscolor/jscolor.js"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/analytics.js"></script> 
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js?v=1.0.6"></script> 
-
-		<link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="//mthangout.appspot.com/a/hangouttoolbox/css/style.css" />
-		
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/hangouttoolbox.js?v=1.0.6"></script>
-		
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/lowerthird.js?v=1.0.6"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/soundboard.js?v=1.0.6"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/volumecontrol.js?v=1.0.6"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/memeface.js?v=1.0.6"></script>
-		<script src="//mthangout.appspot.com/a/hangouttoolbox/modules/anonymous.js?v=1.0.6"></script>
-		
+      var getScript = function(url) {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = url;
+        $("#scripts").append(s);
+      }
+    </script>
+    <script src="//apis.google.com/js/client.js?onload=onClientReady"></script>
+    <div id="scripts"></div>
 		<div id="extension"></div>
 	]]>
 	</Content>
