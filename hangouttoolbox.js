@@ -95,7 +95,7 @@
 		 * Create pane mainbody
 		*/
 		//var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-57)+"px"});
-		var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-158)+"px"});
+		var mainbody = div.clone().attr({"id": "mainbody"}).css({"height": (this.maxHeight-156)+"px"});
 
 		/*
 		 * Create Accordion
@@ -105,6 +105,8 @@
 		accordion.append(div.clone().attr({"id":"app-lowerthird"}));
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Volume Control</a>"));
 		accordion.append(div.clone().attr({"id":"app-volumecontrol"})); 
+		/*accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Comment Tracker</a>"));
+		accordion.append(div.clone().attr({"id":"app-commenttracker"})); */
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>De-Face</a>"));
 		accordion.append(div.clone().attr({"id":"app-memeface"}));
 		accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Soundboard</a>"));
