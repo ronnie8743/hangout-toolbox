@@ -74,10 +74,14 @@ padding:0 10px;
 }
 
 #mainbody {
-overflow-y:auto;
+overflow-y:hidden;
 padding-top:0;
 padding-bottom:0;
 position:relative;
+}
+
+.app {
+    overflow-y:auto;
 }
 
 .clear {

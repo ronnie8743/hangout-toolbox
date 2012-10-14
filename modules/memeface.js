@@ -48,7 +48,7 @@ MemeFace.prototype.buildDOM = function(){
 	var switch_memefaces	= this.createElement("a",{"id": "switch_memefaces", "class": "onoffswitch"});
 	var switch_ownface  	= this.createElement("a",{"id": "switch_ownface", "class": "onoffswitch"});
 
-	var memebody = div.clone().attr({"id": "memebody"});
+	var memebody = div.clone().attr({"id": "memebody", "class":"app"});
 	var form = this.createElement("form", {"id": "form"});
 
 	var inputText_url 		= inputText.clone().attr({"id": "Url", "class": "box_text", "name": "url"});

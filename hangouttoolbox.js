@@ -111,20 +111,20 @@
 		tabs_ul.append(this.createElement("li").html("<a href='#tabs-6'>?</a>"));
 		tabs.append(tabs_ul);
 		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Lower Third</a>"));
-		tabs.append(div.clone().attr({"id":"tabs-1"}));
+		tabs.append(div.clone().attr({"id":"tabs-1", "class":"app"}));
 		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Volume Control</a>"));
-		tabs.append(div.clone().attr({"id":"tabs-2"})); 
+		tabs.append(div.clone().attr({"id":"tabs-2", "class":"app"})); 
 		/*accordion.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Comment Tracker</a>"));
 		accordion.append(div.clone().attr({"id":"app-commenttracker"})); */
 		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>De-Face</a>"));
-		tabs.append(div.clone().attr({"id":"tabs-3"}));
+		tabs.append(div.clone().attr({"id":"tabs-3", "class":"app"}));
 		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Soundboard</a>"));
-		tabs.append(div.clone().attr({"id":"tabs-4"}));
+		tabs.append(div.clone().attr({"id":"tabs-4", "class":"app"}));
 		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>Anonymous</a>"));
-		tabs.append(div.clone().attr({"id":"tabs-5"}));
-		tabs.append(div.clone().attr({"id":"tabs-7"}));
+		tabs.append(div.clone().attr({"id":"tabs-5", "class":"app"}));
+		tabs.append(div.clone().attr({"id":"tabs-7", "class":"app"}));
 		//tabs.append(this.createElement("h3",{"class":"ui-accordion-header"}).html("<a href='#'>About & Support</a>"));
-		tabs.append(div.clone().attr({"id":"tabs-6"}).html("<p style='margin-left:10px;'>A Hangout Extension with several features.<br /><br />This toolbox provides several apps/extensions to improve your Hangout experience.<br /><br />It contains:<br /><ul style='margin-left:10px;'><li>Lower Third</li><li>Volume Control</li><li>De-Face</li><li>Anonymous</li><li>Soundboard</li></ul><p style='margin-left: 10px;'>Please visit us on <a href='https://plus.google.com/110344475746210074770/about' target='_blank'>Google+</a> or on our <a href='https://code.google.com/p/hangout-toolbox/' target='_blank'>project page</a></p><br /><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YRQBKYGF38ZL' class='general-button-blue' target='_blank'>Fund Development</a>"));
+		tabs.append(div.clone().attr({"id":"tabs-6", "class":"app"}).html("<p style='margin-left:10px;'>A Hangout Extension with several features.<br /><br />This toolbox provides several apps/extensions to improve your Hangout experience.<br /><br />It contains:<br /><ul style='margin-left:10px;'><li>Lower Third</li><li>Volume Control</li><li>De-Face</li><li>Anonymous</li><li>Soundboard</li></ul><p style='margin-left: 10px;'>Please visit us on <a href='https://plus.google.com/110344475746210074770/about' target='_blank'>Google+</a> or on our <a href='https://code.google.com/p/hangout-toolbox/' target='_blank'>project page</a></p><br /><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YRQBKYGF38ZL' class='general-button-blue' target='_blank'>Fund Development</a>"));
 
 		/*
 		 * Create the footer Div
@@ -154,6 +154,8 @@
 		 * Set the maximum height of the mainbody minus header, input div and footer
 		*/
 		jQuery("#mainbody").height(this.maxHeight-57);
+		jQuery("#tabs").height(this.maxHeight-63);
+		jQuery(".app").height(this.maxHeight-102);
 	}
 
 	/**

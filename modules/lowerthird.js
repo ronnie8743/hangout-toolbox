@@ -103,7 +103,7 @@ LowerThird.prototype.buildDOM = function(){
 	/*
 	 * Create pane body
 	*/
-	var lowerbody = div.clone().attr({"id": "lowerbody"});
+	var lowerbody = div.clone().attr({"id": "lowerbody", "class":"app"});
 
 	/*
 	 * Creates the form element

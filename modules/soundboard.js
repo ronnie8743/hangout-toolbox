@@ -19,7 +19,7 @@ Soundboard.prototype.buildDOM = function(){
 	/*
 	 * Create pane body
 	*/
-	var soundbody = div.clone().attr({"id": "soundbody"});
+	var soundbody = div.clone().attr({"id": "soundbody", "class":"app"});
 	var stopbutton = this.createElement("button", {"id": "stop"}).text("Stop All").appendTo(soundbody);		
 	/*
 	 * Creates the form element
