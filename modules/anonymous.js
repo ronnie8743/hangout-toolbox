@@ -1,7 +1,7 @@
-var AnonymousBar = function() {
+function AnonymousBar() {
   this.inactive = false;
   this.overlay = null;
-}
+};
 
 AnonymousBar.prototype.createBar = function() {
   var canvas = document.getElementById('anonymous_canvas');
@@ -10,7 +10,7 @@ AnonymousBar.prototype.createBar = function() {
   context.fillStyle = "#000000";
   var bar = context.fillRect(0, 0, 290, 70);
   return canvas.toDataURL();
-}
+};
 
 AnonymousBar.prototype.startTracking = function() {
   var image = gapi.hangout.av.effects.createImageResource(this.createBar());
@@ -21,7 +21,7 @@ AnonymousBar.prototype.startTracking = function() {
     , 'scale': 2.1
     , 'offset': { 'x': 0, 'y': 0 }
   });
-}
+};
 
 AnonymousBar.prototype.toggle = function() {
   this.inactive = !(this.inactive);
@@ -32,16 +32,18 @@ AnonymousBar.prototype.toggle = function() {
   } else {
     btn.html('Turn on');
   }
-}
+};
 
 AnonymousBar.prototype.init = function() {
   var container = $('#tabs-5');
   container.html('');
+  console.log(this, that);
   var that = this;
   var button = $('<button id="toggle_anonymous" class="general-button-blue">Turn on</button>').click(function() {
     that.toggle();
   });
   container.append(button);
   container.append('<canvas id="anonymous_canvas" width="300" height="70" style="display: none;"></canvas>');
+  console.log(this, that);
   this.startTracking();
-}
+};
