@@ -179,9 +179,9 @@
 					autoHeight: false,
 					active: false
 				});
-				$( "#tabs" ).tabs({
+				$("#tabs").tabs({
             		collapsible: true
-       			 });
+       			});
 				this.scale();
 				
 				var lowerthird = new LowerThird();
@@ -197,6 +197,7 @@
 			}	
 			catch(err) {
 				console.log(err);
+				//Test
 			}
 		}
 	}
