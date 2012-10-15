@@ -575,6 +575,43 @@ img {border:0;}
  * CSS for Anonymous
 */
 
+.lowerthird {
+    background: url("https://mthangout.appspot.com/a/hangouttoolbox/i/app_icons/lower.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+.volume {
+    background: url("https://mthangout.appspot.com/a/hangouttoolbox/i/app_icons/volumecontrol.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+.deface {
+    background: url("https://mthangout.appspot.com/a/hangouttoolbox/i/app_icons/meme.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+.soundboard {
+    background: url("https://mthangout.appspot.com/a/hangouttoolbox/i/app_icons/sound.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+.anonymous {
+    background: url("https://mthangout.appspot.com/a/hangouttoolbox/i/app_icons/anon.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+.commenttracker {
+    background: url("https://mthangout.appspot.com/a/hangouttoolbox/i/app_icons/comment.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
 
 
 
