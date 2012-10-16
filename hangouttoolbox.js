@@ -103,12 +103,12 @@
 		var tabs = div.clone().attr({"id":"tabs"});
 		var tabs_ul = this.createElement("ul");
 		tabs_ul.append(this.createElement("li").html("<a href='#tabs-1' title='Lower Third' class='lowerthird'></a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tabs-2'>VC</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tabs-3'>DF</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tabs-4'>SB</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tabs-5'>AN</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tabs-7'>CT</a>"));
-		tabs_ul.append(this.createElement("li").html("<a href='#tabs-6'>?</a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-2' title='Volumecontrol' class='volume'></a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-3' title='De-Face' class='deface'></a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-4' title='Soundboard' class='soundboard'></a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-5' title='Anonymous' class='anonymous'></a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-7' title='Comment Tracker (coming soon)' class='commenttracker'></a>"));
+		tabs_ul.append(this.createElement("li").html("<a href='#tabs-6' title='Info & Support'>?</a>"));
 		tabs.append(tabs_ul);
 		
 		tabs.append(div.clone().attr({"id":"tabs-1", "class":"app"}));

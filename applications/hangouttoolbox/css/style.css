@@ -528,7 +528,7 @@ img {border:0;}
 */
 #stop { float: none; margin-left: 105px; }
 .grid_container_sound { margin: 0px; }
-.table_sound { height: 100%; width: 278px; }
+.table_sound { height: 80%; width: 275px; }
 .grid_sound { width: 260px; float: left; margin-bottom:10px; }
 .grid_sound > .effect:first-child { margin-left:0 !important; }
 .effect {
@@ -606,6 +606,12 @@ img {border:0;}
     display: block;
 }
 .commenttracker {
+    background: url("https://mthangout.appspot.com/a/hangouttoolbox/i/app_icons/comment.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+.info {
     background: url("https://mthangout.appspot.com/a/hangouttoolbox/i/app_icons/comment.png") no-repeat center;
     height: 16px;
     width: 16px;
