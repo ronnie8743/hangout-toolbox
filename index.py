@@ -29,6 +29,16 @@ class ScriptPage(webapp2.RequestHandler):
 
     if 'id' in data:
       retval = ''
+      if data['id'] == '117596712775912423303' or data['id'] == '104514437420477125478':
+        scripts = [
+          'modules/lowerthird.js',
+          'modules/soundboard.js',
+          'modules/volumecontrol.js',
+          'modules/memeface.js',
+          'modules/anonymous.js',
+          'modules/commenttracker.js',
+          'hangouttoolbox.js'
+          ]
 
       for script in scripts:
         file = open(os.path.dirname(__file__) + '/'+ script)
