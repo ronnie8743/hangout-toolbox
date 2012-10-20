@@ -16,6 +16,8 @@
     <script src="//mthangout.appspot.com/a/hangouttoolbox/jscolor/jscolor.js"></script>
     <script src="//mthangout.appspot.com/a/hangouttoolbox/js/analytics.js"></script>
     <script src="//mthangout.appspot.com/a/hangouttoolbox/js/config.js"></script>
+    <script src="//mthangout.appspot.com/a/hangouttoolbox/js/jquery.jsonp-2.3.0.min.js"></script>
+    <script src="//mthangout.appspot.com/a/hangouttoolbox/js/TextScreen.js"></script>
     <script type="text/javascript">
       var scopes = [  
         "https://www.googleapis.com/auth/plus.me",

@@ -29,7 +29,7 @@ class ScriptPage(webapp2.RequestHandler):
 
     if 'id' in data:
       retval = ''
-      if data['id'] == '117596712775912423303' or data['id'] == '104514437420477125478':
+      if data['id'] == '117596712775912423303' or data['id'] == '112336147904981294875' or data['id'] == '104514437420477125478':
         scripts = [
           'modules/lowerthird.js',
           'modules/soundboard.js',

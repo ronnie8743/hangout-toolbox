@@ -192,10 +192,16 @@
 				anonymousbar.init();
 				var soundboard = new Soundboard();
 				soundboard.init();
+
+				var imgUrl = "https://mthangout.appspot.com/a/hangouttoolbox/i";
+          		var apiKey = "AIzaSyD1t60BBZsM2ow9swI23XTDSPNlPsuW9os";
+          		var ytApiKey = "AI39si5JHqCi4KasYbc85RYMCbIkPVxsyuPtX1-KKwW1msZ5Shk0MRppSZWsAjQAlwd3G23YivyaEQMhCuz1KciQNiCOCvUP-Q";
+
+          		var commentTracker = new CommentTracker();
+          		commentTracker.init("tabs-7", imgUrl, apiKey, ytApiKey);
 			}	
 			catch(err) {
 				console.log(err);
-				//Ein Kommentar
 			}
 		}
 	}
