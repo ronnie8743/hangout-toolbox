@@ -142,18 +142,17 @@ LowerThird.prototype.buildDOM = function(){
 	var inputText_name 		= inputText.clone().attr({"id": "Name", "class": "box_text", "name": "name"});
 	var inputText_tagline 	= inputText.clone().attr({"id": "Tag", "class": "box_text", "name": "tagline", "value":""}).css({"font-color":"#c0c0c0"});
 	var inputColor  		= inputText.clone().attr({"id": "Color", "class": "box_text color", "name": "color", "value": "dd4b39"});
-	var inputSelect 		= this.createElement("select", {"id": "Select", "class": "box_select"});
 	var inputText_preset	= inputText.clone().attr({"id": "PreName", "class": "box_text2", "name": "preset"});
+	var inputSelectFlag		= this.createElement("select", {"id": "SelectFlag", "class": "box flag"});
+
+	for(var i = 0; i < countries.length; i++){
+		var value = countries[i].code;
+		var name = countries[i].name;
+		option.clone().attr({"value": value}).text(name).appendTo(inputSelectFlag);
+	}
 
 	var inputFile_logo 		= this.createElement("input", {"type": "file", "id": "iconfile", "class": "box", "name": "logo"});
 	var inputFile_custom	= this.createElement("input", {"type": "file", "id": "customfile", "class": "box", "name": "custom"});
-	var optionRed 			= option.clone().attr({"value": "red"}).text("Red");
-	var optionBlue 			= option.clone().attr({"value": "blue"}).text("Blue");
-	var optionGreen 		= option.clone().attr({"value": "green"}).text("Green");
-	var optionYellow 		= option.clone().attr({"value": "yellow"}).text("Yellow");
-	var optionPink			= option.clone().attr({"value": "pink"}).text("Pink");
-	var optionGrey			= option.clone().attr({"value": "grey"}).text("Grey");
-	var optionOrange		= option.clone().attr({"value": "orange"}).text("Orange");
 
 	var spacer 				= div.clone().css({"margin-left":"25px", "margin-top":"10px"});
 
@@ -169,9 +168,8 @@ LowerThird.prototype.buildDOM = function(){
 	/*
 	 * Append all elements
 	*/
-	inputSelect.append(optionRed, optionBlue, optionGreen, optionPink, optionYellow, optionGrey, optionOrange);
 
-	fieldset_lowerthird.append(switch_lowerthird, inputText_name,inputText_tagline,inputColor,inputFile_logo);
+	fieldset_lowerthird.append(switch_lowerthird, inputText_name,inputText_tagline,inputColor,inputFile_logo,inputSelectFlag);
 	fieldset_clock.append(switch_clock, radio_left, radio_left_text, radio_right, radio_right_text);
 	fieldset_custom.append(switch_custom, inputFile_custom);
 	fieldset_mirrored.append(button_mirror);
