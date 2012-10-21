@@ -37,13 +37,11 @@ AnonymousBar.prototype.toggle = function() {
 AnonymousBar.prototype.init = function() {
   var container = $('#tabs-5');
   container.html('');
-  console.log(this, that);
   var that = this;
   var button = $('<span style="font-weight: bold; margin-left:75px; font-size: 20px;">Be Anonymous!</span><br /><button id="toggle_anonymous" class="general-button-blue" style="margin-left: 115px; margin-top:20px;">Turn on</button>').click(function() {
     that.toggle();
   });
   container.append(button);
   container.append('<canvas id="anonymous_canvas" width="300" height="70" style="display: none;"></canvas>');
-  console.log(this, that);
   this.startTracking();
 };
