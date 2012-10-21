@@ -700,6 +700,12 @@ LowerThird.prototype.loadPreset = function(evt){
 		jQuery("#Select").removeAttr("disabled");
 		jQuery("#iconfile").removeAttr("disabled");
 	}
+
+	if(this.overlays["flag"]){
+		this.overlays["flag"].setVisible(false);
+		this.overlays["flag"].dispose();
+		delete this.overlays["flag"];
+	}
 	if(this.globalShowSaved === false){
 		this.globalShowSaved = true;
 		this.loadedoverlay = id;

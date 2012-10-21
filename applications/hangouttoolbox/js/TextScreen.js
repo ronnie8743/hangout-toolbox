@@ -147,7 +147,7 @@
       this.lineHeight = this.work[0].offsetHeight;
       this.context.fillStyle = 'white';
       this.context.strokeStyle = 'black';
-      this.context.lineWidth = 0.5;
+      this.context.lineWidth = 1;
       font = this.workj.css('font');
       fontSize = this.workj.css('font-size');
       fontFamily = this.workj.css('font-family');
