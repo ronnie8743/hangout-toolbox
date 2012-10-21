@@ -237,6 +237,8 @@ LowerThird.prototype.toggleShow = function(){
 		jQuery("#iconfile").attr({"disabled": "disabled"});
 		this.globalShow = true;
 		this.createCanvas();
+		var selectedFlag = jQuery("#SelectFlag").val();
+		this.createFlag(selectedFlag);
 		return;
 	}
 
@@ -250,7 +252,12 @@ LowerThird.prototype.toggleShow = function(){
 	this.overlays['lowerthird'].setVisible(false);
 	this.overlays['lowerthird'].dispose();
 	delete this.overlays['lowerthird'];
-	
+
+	if(this.overlays["flag"]){
+		this.overlays["flag"].setVisible(false);
+		this.overlays["flag"].dispose();
+		delete this.overlays["flag"];
+	}
 }
 
 /**
@@ -658,7 +665,17 @@ LowerThird.prototype.DeletePreset = function(evt){
 	
 }
 
-	/**
+LowerThird.prototype.createFlag = function(flag){
+	var flagURL = "http://mthangout.appspot.com/a/hangouttoolbox/i/flags/" + flag + ".png";
+	var flagImage = gapi.hangout.av.effects.createImageResource(flagURL);
+	this.overlays["flag"] = flagImage.createOverlay({
+	});
+	this.overlays["flag"].setScale(0.15, gapi.hangout.av.effects.ScaleReference.WIDTH);
+	this.overlays["flag"].setPosition(-0.42, 0.4);
+	this.overlays["flag"].setVisible(true);
+}
+
+/**
  * @loadSaved - Loads the last used Overlay
  * @private
 */

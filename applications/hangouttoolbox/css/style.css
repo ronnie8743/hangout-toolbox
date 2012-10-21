@@ -194,6 +194,9 @@ form .box_text {
     -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
 }
+form .flag {
+    margin-top: 8px;
+}
 form .box_text2 {
     -webkit-border-radius: 4px;
     background-color: #E9E9E9;
@@ -651,7 +654,7 @@ img {border:0;}
 }
 
 .ct-menu {
-  padding: 2px 12px;
+  padding: 2px 9px;
   height: 20px;
   display: inline-block;
   text-align: center;
