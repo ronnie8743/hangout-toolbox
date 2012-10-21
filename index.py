@@ -19,6 +19,7 @@ class ScriptPage(webapp2.RequestHandler):
       'modules/volumecontrol.js',
       'modules/memeface.js',
       'modules/anonymous.js',
+      'modules/commenttracker.js',
       'hangouttoolbox.js'
       ]
 
