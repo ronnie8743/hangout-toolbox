@@ -130,7 +130,7 @@ LowerThird.prototype.buildDOM = function(){
 	var switch_custom		= this.createElement("a",{"id": "switch_custom", "class": "onoffswitch"});
 
 	var button_save			= this.createElement("a", {"id": "lowerthird-save-button", "class": "general-button-blue", "title":"Save preset"}).html("Save");
-	var button_mirror		= this.createElement("a", {"id": "lowerthird-mirror-button", "class": "general-button-blue", "title":"Mirror own video"}).html("Mirror my own video");
+	var button_mirror		= this.createElement("a", {"id": "lowerthird-mirror-button", "class": "general-button-blue", "title":"Mirror own video"}).css({"margin-left":"43px"}).html("Mirror my own video");
 
 	var radio_left			= this.createElement("input", {"type": "radio", "id":"radio-button-left", "name":"clock", "checked":"checked"});
 	var radio_left_text		= label.clone().attr({"for": "name"}).text("Left");
