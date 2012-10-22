@@ -145,7 +145,7 @@
       this.width = this.canvas.width;
       this.height = this.canvas.height;
       this.lineHeight = this.work[0].offsetHeight;
-      this.context.fillStyle = 'white';
+      this.context.fillStyle = 'black';
       this.context.strokeStyle = 'black';
       this.context.lineWidth = 1;
       font = this.workj.css('font');
