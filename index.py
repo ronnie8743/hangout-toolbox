@@ -18,7 +18,6 @@ class ScriptPage(webapp2.RequestHandler):
       'modules/soundboard.js',
       'modules/volumecontrol.js',
       'modules/memeface.js',
-      'modules/anonymous.js',
       'modules/commenttracker.js',
       'hangouttoolbox.js'
       ]
@@ -36,7 +35,6 @@ class ScriptPage(webapp2.RequestHandler):
           'modules/soundboard.js',
           'modules/volumecontrol.js',
           'modules/memeface.js',
-          'modules/anonymous.js',
           'modules/commenttracker.js',
           'hangouttoolbox.js'
           ]
