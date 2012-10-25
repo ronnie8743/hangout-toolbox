@@ -231,4 +231,4 @@ MemeFace.prototype.createElement = function(type, attr){
 MemeFace.prototype.init = function(event){
 	this.buildDOM();
 	this.createFacesResources();
-}
+};
