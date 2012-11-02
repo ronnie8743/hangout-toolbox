@@ -235,6 +235,7 @@ LowerThird.prototype.toggleShow = function(){
 		jQuery("#Tag").attr({"disabled": "disabled"});
 		jQuery("#Color").attr({"disabled": "disabled"});
 		jQuery("#iconfile").attr({"disabled": "disabled"});
+		jQuery("#SelectFlag").attr({"disabled": "disabled"});
 		this.globalShow = true;
 		this.createCanvas();
 		var selectedFlag = jQuery("#SelectFlag").val();
@@ -247,6 +248,7 @@ LowerThird.prototype.toggleShow = function(){
 	jQuery("#Tag").removeAttr("disabled");
 	jQuery("#Color").removeAttr("disabled");
 	jQuery("#iconfile").removeAttr("disabled");
+	jQuery("#SelectFlag").removeAttr("disabled");
 	this.globalShow = false;
 
 	this.overlays['lowerthird'].setVisible(false);
@@ -699,6 +701,7 @@ LowerThird.prototype.loadPreset = function(evt){
 		jQuery("#Tag").removeAttr("disabled");
 		jQuery("#Select").removeAttr("disabled");
 		jQuery("#iconfile").removeAttr("disabled");
+		jQuery("#SelectFlag").removeAttr("disabled");
 	}
 
 	if(this.overlays["flag"]){
