@@ -40,17 +40,6 @@
 		  this.maxHeight = $(window).height();
         }
 
-		this.betaTester = [
-				"117596712775912423303", //Moritz Tolxdorff
-				"104514437420477125478", //Martin Thielecke
-				"102408750978338972864", //Peter Liebetrau
-				"108751342867466333780", //Guido Hartenberg
-				"103038287804535196503", //Dolidh Young
-				"106179512747452333356", //Oliver Nispel
-				"103986936454495781196", //Rene Pohland
-				"103588655491600728393" //Pascal Herbert
-		];
-
 		/*
 		 * Bind gapi events when API is ready
 		*/
@@ -176,7 +165,7 @@
 				});
 				$("#tabs").tabs({
             		collapsible: true,
-            		selected: 6
+            		selected: 5
        			});
 				this.scale();
 				

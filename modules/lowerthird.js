@@ -141,7 +141,7 @@ LowerThird.prototype.buildDOM = function(){
 
 	var inputText_name 		= inputText.clone().attr({"id": "Name", "class": "box_text", "name": "name"});
 	var inputText_tagline 	= inputText.clone().attr({"id": "Tag", "class": "box_text", "name": "tagline", "value":""}).css({"font-color":"#c0c0c0"});
-	var inputColor  		= inputText.clone().attr({"id": "Color", "class": "box_text color", "name": "color", "value": "dd4b39"});
+	var inputColor  		= inputText.clone().attr({"id": "Color", "class": "box_text color", "name": "color", "value": "1F38DD"});
 	var inputText_preset	= inputText.clone().attr({"id": "PreName", "class": "box_text2", "name": "preset"});
 	var inputSelectFlag		= this.createElement("select", {"id": "SelectFlag", "class": "box flag"});
 
