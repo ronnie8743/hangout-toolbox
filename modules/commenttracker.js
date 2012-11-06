@@ -69,7 +69,7 @@
       this.post = post;
       this.url = url || this.post.url;
       this.activity_id = activity_id;
-      this.comment_id = comment_id;
+      this.comment_id = comment_id.replace(/\W/gi, "_");
       this.author_name = author_name;
       this.author_pic = author_pic;
       this.published = published;
@@ -824,6 +824,7 @@
                     chk_new = true;
                     l1 = comments.length;
                     id = this_post.div_id + "_" + item.id;
+                    id = id.replace(/\W/gi, "_");
                     for (i1 = 0; i1 < l1; i1++) {
                       if (comments[i1].comment_id === id) {
                         comments[i1].chk_found = true;
@@ -874,6 +875,7 @@
                     chk_new = true;
                     l1 = comments.length;
                     id = this_post.div_id + "_" + item.from_user_id_str + "_" + item.id_str;
+                    id = id.replace(/\W/gi, "_");
                     url = "https://twitter.com/" + item.from_user + "/status/" + item.id_str;
                     for (i1 = 0; i1 < l1; i1++) {
                       if (comments[i1].comment_id === id) {
@@ -901,7 +903,7 @@
 
           if (this.post_type === PLUS_POST) {
             this.checking = true;
-            request = "https://www.googleapis.com/plus/v1/activities/" + this_post.activity_id + "/comments?callback=?&sortOrder=descending&maxResults=100&key=" + apiKey;
+            request = "https://www.googleapis.com/plus/v1/activities/" + this_post.activity_id + "/comments?callback=?&sortOrder=descending&maxResults=500&key=" + apiKey;
             $.jsonp({
               "url": request,
               "success": function (resp) {
@@ -916,6 +918,7 @@
                     item = resp.items[i];
                     chk_new = true;
                     l1 = comments.length;
+                    item.id = item.id.replace(/\W/gi, "_");
                     for (i1 = 0; i1 < l1; i1++) {
                       if (comments[i1].comment_id === item.id) {
                         comments[i1].chk_found = true;
