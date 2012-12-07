@@ -1,5 +1,6 @@
 var Soundboard = function(){
 	this.sounds = {};
+	this.soundeffects = {};
 }
 
 /**
@@ -59,26 +60,33 @@ Soundboard.prototype.buildDOM = function(){
  * @param canvas {HTMLCanvasElement}
 */
 Soundboard.prototype.createSoundEffects = function(){
-	for(var i = 0; i < sounds.length; i++){
+	/*for(var i = 0; i < sounds.length; i++){
 		try{
 			this.sounds[sounds[i].source] = gapi.hangout.av.effects.createAudioResource("http://www.tolxdorff.net/apps/hangouttoolbox/s/" + sounds[i].source)
 			.createSound({loop: sounds[i].loop || false, localOnly: false, volume: sounds[i].volume || 0.3});
+			console.log(this.sounds[sounds[i].source]);
 		}catch(e){
 			console.log(e);
 		}
-	}
+	}*/
 }
 
 Soundboard.prototype.playSound = function(event){
 	var file = jQuery(event.target).data("playable");
-	this.sounds[file] && this.sounds[file].play();
+	if(!this.soundeffects[file]){
+		console.log("Generate file: "+file);
+		this.soundeffects[file] = gapi.hangout.av.effects.createAudioResource("http://www.tolxdorff.net/apps/hangouttoolbox/s/" + file)
+			.createSound({loop: sounds[i].loop || false, localOnly: false, volume: sounds[i].volume || 0.3});
+	//this.sounds[file] && this.sounds[file].play();
+	}
+	this.soundeffects[file].play();
 }
 
 Soundboard.prototype.stopAll = function(event){
 	var that = this;
-	jQuery.each(this.sounds, function(key, val){
-		if(typeof(that.sounds[key]) != "undefined"){
-			that.sounds[key].stop();
+	jQuery.each(this.soundeffects, function(key, val){
+		if(typeof(that.soundeffects[key]) != "undefined"){
+			that.soundeffects[key].stop();
 		}
 	});
 }
@@ -100,5 +108,5 @@ Soundboard.prototype.createElement = function(type, attr){
 */
 Soundboard.prototype.init = function(event){
 	this.buildDOM();
-	this.createSoundEffects();
+	//this.createSoundEffects();
 }
