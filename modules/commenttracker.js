@@ -958,13 +958,15 @@
             $.jsonp({
               "url": request,
               "success": function (data) {
-                var i, i1, l, l1, chk_new, item, id;
+                var i, i1, l, l1, chk_new, item, id, numResults;
                 l1 = comments.length;
                 for (i1 = 0; i1 < l1; i1++) {
                   comments[i1].chk_found = false;
                 }
+                numResults = 0;
                 if (data.feed.entry) {
                   l = data.feed.entry.length;
+                  numResults = l;
                   for (i = 0; i < l; i++) {
                     item = data.feed.entry[i];
                     chk_new = true;
@@ -989,7 +991,7 @@
                 }
                 comments.sort(comment_sort);
                 l1 = comments.length;
-                for (i1 = Math.max(l1 - max_results, 0); i1 < l1; i1++) {
+                for (i1 = Math.max(l1 - numResults, 0); i1 < l1; i1++) {
                   if (!comments[i1].chk_found) {
                     comments[i1].chk_delete = true;
                   }
