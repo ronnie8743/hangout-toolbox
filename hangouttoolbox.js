@@ -104,7 +104,7 @@
 		tabs.append(div.clone().attr({"id":"tabs-3", "class":"app"}));
 		tabs.append(div.clone().attr({"id":"tabs-4", "class":"app"}));
 		tabs.append(div.clone().attr({"id":"tabs-7", "class":"app"}));
-		tabs.append(div.clone().attr({"id":"tabs-6", "class":"app"}).html("<p style='margin-left:10px;'>A Hangout Extension with several features.<br /><br />This toolbox provides several apps/extensions to improve your Hangout experience.<br /><br />It contains:<br /><ul style='margin-left:10px;'><li>Lower Third</li><li>Volume Control</li><li>De-Face</li><li>Soundboard</li><li>Comment Tracker</li></ul><p style='margin-left: 10px;'>Please visit us on <a href='https://plus.google.com/110344475746210074770/about' target='_blank'>Google+</a> or on our <a href='https://code.google.com/p/hangout-toolbox/' target='_blank'>project page</a></p><br />Thanks to <a href='https://plus.google.com/112336147904981294875/posts' target='_blank'>Gerwin Sturm</a> for the Comment Tracker code."));
+		tabs.append(div.clone().attr({"id":"tabs-6", "class":"app"}).html("<p style='margin-left:10px;'>A Hangout Extension with several features.<br /><br />This toolbox provides several apps/extensions to improve your Hangout experience.<br /><br />It contains:<br /><ul style='margin-left:10px;'><li>Lower Third</li><li>Volume Control</li><li>Meme-Faces</li><li>Soundboard</li><li>Comment Tracker</li></ul><p style='margin-left: 10px;'>Please visit us on <a href='https://plus.google.com/110344475746210074770/about' target='_blank'>Google+</a> or on our <a href='https://code.google.com/p/hangout-toolbox/' target='_blank'>project page</a><br />Thanks to <a href='https://plus.google.com/112336147904981294875/posts' target='_blank'>Gerwin Sturm</a> for the Comment Tracker code.</p>"));
 
 		/*
 		 * Create the footer Div
@@ -112,9 +112,9 @@
 		var date = new Date();
 		year = date.getFullYear();
 		var footer = div.clone().attr({id: "footer"}).html("&copy " + year + " ");
-		footer.append(this.createElement("a",{"href": "https://google.me/+MoritzTolxdorff", "target": "_blank"}).html("+Moritz"));
+		footer.append(this.createElement("a",{"href": "https://google.me/+MoritzTolxdorff", "target": "_blank"}).html("Moritz"));
 		footer.append(this.createElement("span").html(" &amp; "));
-		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("+Martin"));
+		footer.append(this.createElement("a",{"href": "https://plus.google.com/104514437420477125478", "target": "_blank"}).html("Martin"));
 		footer.append(this.createElement("span", {"class":"version"}).text("v " + version));
 		
 		mainbody.append(tabs);
